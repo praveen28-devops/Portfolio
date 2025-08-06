@@ -37,9 +37,9 @@ const Leadership = () => {
 
   const leadershipRoles = [
     {
-      title: 'Technical Lead - DevOps Team',
-      organization: 'Tech Solutions Inc.',
-      period: '2022 - Present',
+      title: 'SM Volunteer',
+      organization: 'SM Volunteer',
+      period: '2023 - 2024',
       description: 'Leading a team of 8 DevOps engineers to implement cloud-native solutions and automation frameworks.',
       icon: Users,
       achievements: [
@@ -99,36 +99,6 @@ const Leadership = () => {
       impact: 'Enabled career transitions for 20+ students into tech industry',
       color: 'from-red-500 to-orange-500'
     },
-    {
-      title: 'Innovation Workshop Leader',
-      organization: 'Local Engineering Colleges',
-      period: '2022 - Present',
-      description: 'Conducting workshops on emerging technologies and fostering innovation mindset among engineering students.',
-      icon: Lightbulb,
-      contributions: [
-        'Delivered workshops at 10+ engineering colleges',
-        'Taught 500+ students about cloud-native technologies',
-        'Judged hackathons and technical competitions',
-        'Established industry-academia partnerships'
-      ],
-      impact: 'Inspired 500+ students to pursue careers in cloud technology',
-      color: 'from-yellow-500 to-red-500'
-    },
-    {
-      title: 'Disaster Relief Technology Volunteer',
-      organization: 'Tech4Relief NGO',
-      period: '2020 - 2021',
-      description: 'Developed and maintained technology solutions for disaster relief operations during COVID-19 pandemic.',
-      icon: Target,
-      contributions: [
-        'Built contact tracing application for local authorities',
-        'Maintained infrastructure for relief coordination platform',
-        'Automated data processing for relief distribution',
-        'Provided 24/7 technical support during emergencies'
-      ],
-      impact: 'Supported relief efforts reaching 10,000+ affected families',
-      color: 'from-indigo-500 to-blue-500'
-    }
   ];
 
   const awards = [
@@ -137,12 +107,6 @@ const Leadership = () => {
       organization: 'Tech Solutions Inc.',
       year: '2023',
       description: 'Recognized for outstanding leadership in driving digital transformation initiatives'
-    },
-    {
-      title: 'Community Impact Award',
-      organization: 'Chennai Tech Community',
-      year: '2022',
-      description: 'Honored for significant contributions to the local tech ecosystem'
     },
     {
       title: 'Innovation in DevOps',
