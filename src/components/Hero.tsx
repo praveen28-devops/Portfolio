@@ -47,7 +47,7 @@ const Hero = () => {
           {/* Enhanced Profile Section with Real Image */}
           <div className={`mb-10 transition-all duration-1600 ${isVisible ? 'fade-in-scale' : 'opacity-155'}`}>
             <div className="relative inline-block mb-6">
-              <div className="w-[275px] h-[275px] mx-auto rounded-full glass-card p-2 floating-card super-elevated">
+              <div className="w-[320px] h-[320px] mx-auto rounded-full glass-card p-2 floating-card super-elevated">
                 <div className="w-full h-full rounded-full overflow-hidden relative image-overlay">
                   <img 
                     src={profilePhoto} 
@@ -85,20 +85,19 @@ const Hero = () => {
             <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
               {contactItems.map((item, index) => (
                 <a
-                  key={index}
-                  href={item.href}
-                  className={`glass-card px-6 py-3 rounded-full hover:super-elevated transition-all duration-500 group tilt-card ${
-                    isVisible ? 'bounce-in' : 'opacity-0'
-                  }`}
-                  style={{ transitionDelay: `${700 + index * 100}ms` }}
-                >
-                  <div className="flex items-center space-x-3 text-sm">
-                    <item.icon className="h-5 w-5 text-accent group-hover:text-accent-glow transition-colors duration-300 group-hover:scale-110" />
-                    <span className="text-white group-hover:text-accent transition-colors duration-300 font-medium">
-                      {item.text}
-                    </span>
-                  </div>
-                </a>
+  key={index}
+  href={item.href}
+  className={`px-6 py-3 rounded-full bg-blue-900 hover:bg-blue-700 text-white 
+    hover:super-elevated transition-all duration-500 group tilt-card`}
+  style={{ transitionDelay: `${700 + index * 100}ms` }}
+>
+  <div className="flex items-center space-x-3 text-sm">
+    <item.icon className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
+    <span className="font-medium">{item.text}</span>
+  </div>
+</a>
+
+
               ))}
             </div>
           </div>
