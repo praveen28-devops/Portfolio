@@ -14,10 +14,10 @@ const Hero = () => {
 
   const contactItems = [
     { icon: MapPin, text: 'Namakkal, Tamil Nadu, India', href: '' },
-    { icon: Mail, text: 'praveen.fresher@gmail.com', href: 'mailto:praveen.fresher@gmail.com' },
-    { icon: Phone, text: '+91-6382832865', href: 'tel:+916382832865' },
-    { icon: Linkedin, text: 'LinkedIn Profile', href: '#' },
-    { icon: Github, text: 'GitHub Profile', href: '#' }
+    { icon: Mail, text: 'Gmail', href: 'mailto:praveen.dev.cloud@gmail.com' },
+    { icon: Phone, text: 'Phone', href: 'tel:+916382832865' },
+    { icon: Linkedin, text: 'LinkedIn Profile', href: 'https://www.linkedin.com/in/praveen-a-devops' },
+    { icon: Github, text: 'GitHub Profile', href: 'https://github.com/praveen-a-devops' }
   ];
 
   return (
@@ -32,7 +32,7 @@ const Hero = () => {
       }}
     >
       {/* Particle System */}
-      <ParticleSystem count={30} />
+      <ParticleSystem count={100} />
 
       {/* Enhanced Animated Background */}
       <div className="absolute inset-0 opacity-30">
@@ -63,8 +63,11 @@ const Hero = () => {
 
           {/* Enhanced Name and Title */}
           <div className={`mb-8 transition-all duration-1500 delay-300 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-6xl md:text-8xl font-bold mb-6 text-glow-blue">
-              <span className="bg-gradient-to-r from-primary-light via-accent to-primary-light bg-clip-text text-transparent animate-pulse">
+            <h1 className="text-8xl md:text-8xl font-bold mb-6 text-glow-blue">
+              <span className="text-6x1 md:text-8x1 font-extrabold mb-15
+               text-transparent bg-clip-text 
+               bg-gradient-to-r from-blue-400 via-teal-300 to-blue-600 
+               animate-pulse">
                 Praveen A
               </span>
             </h1>

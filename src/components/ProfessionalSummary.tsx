@@ -111,14 +111,14 @@ const ProfessionalSummary = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
                 <div className="text-4xl md:text-5xl font-bold text-accent mb-2">2+</div>
-                <div className="text-muted-foreground">Years Learning</div>
+                <div className="text-muted-foreground">Self Learning</div>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">10+</div>
+                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">5+</div>
                 <div className="text-muted-foreground">Projects Built</div>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">8+</div>
+                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">5+</div>
                 <div className="text-muted-foreground">Technologies Learned</div>
               </div>
             </div>

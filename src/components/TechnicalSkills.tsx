@@ -43,19 +43,19 @@ const TechnicalSkills = () => {
     {
       title: 'Cloud Platforms',
       icon: Cloud,
-      skills: ['AWS', 'Azure', 'Google Cloud', 'DigitalOcean'],
+      skills: ['AWS', 'Azure', 'Google Cloud'],
       color: 'from-blue-500 to-cyan-500'
     },
     {
       title: 'Infrastructure',
       icon: Server,
-      skills: ['Terraform', 'Ansible', 'CloudFormation', 'Pulumi'],
+      skills: ['Terraform', 'CloudFormation'],
       color: 'from-green-500 to-emerald-500'
     },
     {
       title: 'Containerization',
       icon: Container,
-      skills: ['Docker', 'Kubernetes', 'Helm', 'Podman'],
+      skills: ['Docker', 'Kubernetes', 'Helm'],
       color: 'from-purple-500 to-violet-500'
     },
     {
@@ -67,36 +67,30 @@ const TechnicalSkills = () => {
     {
       title: 'Monitoring',
       icon: Monitor,
-      skills: ['Prometheus', 'Grafana', 'ELK Stack', 'Datadog'],
+      skills: ['Prometheus', 'Grafana'],
       color: 'from-pink-500 to-rose-500'
-    },
-    {
-      title: 'Security',
-      icon: Shield,
-      skills: ['Vault', 'SOPS', 'Falco', 'Trivy'],
-      color: 'from-indigo-500 to-blue-500'
     },
     {
       title: 'Databases',
       icon: Database,
-      skills: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch'],
+      skills: ['PostgreSQL', 'MongoDB'],
       color: 'from-teal-500 to-cyan-500'
     },
     {
       title: 'Programming',
       icon: Code,
-      skills: ['Python', 'Bash', 'Go', 'JavaScript'],
+      skills: ['Python', 'Bash'],
       color: 'from-yellow-500 to-amber-500'
     }
   ];
 
   const proficiencyLevels = [
-    { name: 'AWS', level: 75, category: 'Cloud' },
+    { name: 'AWS', level: 95, category: 'Cloud' },
     { name: 'Docker', level: 80, category: 'Container' },
     { name: 'Linux', level: 85, category: 'OS' },
     { name: 'Git', level: 90, category: 'Version Control' },
     { name: 'Python', level: 70, category: 'Programming' },
-    { name: 'Jenkins', level: 65, category: 'CI/CD' }
+    { name: 'Jenkins', level: 85, category: 'CI/CD' }
   ];
 
   return (
@@ -183,7 +177,7 @@ const TechnicalSkills = () => {
             <div className="inline-flex items-center space-x-4 glass-card px-6 py-3 rounded-full">
               <Shield className="h-5 w-5 text-accent" />
               <span className="text-sm font-medium text-foreground">
-                AWS Certified • Azure Certified • Kubernetes Certified
+                AWS Certified (On Progress) • Azure Certified (On Progress) •
               </span>
               <Shield className="h-5 w-5 text-accent" />
             </div>
