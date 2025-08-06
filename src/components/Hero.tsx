@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { MapPin, Mail, Phone, Linkedin, Github, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ParticleSystem from './ParticleSystem';
-import profilePhoto from '@/assets/profile-photo.jpg';
-import heroBg from '@/assets/hero-bg.jpg';
+import profilePhoto from '../assets/profile-photo.jpg'
+import heroBg from '../assets/hero-bg.jpg'
 
 const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
