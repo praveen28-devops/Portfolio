@@ -30,11 +30,11 @@ const Education = () => {
   const education = [
     {
       degree: 'Bachelor of Engineering',
-      field: 'Computer Science & Engineering',
-      institution: 'Anna University',
-      location: 'Chennai, Tamil Nadu',
-      period: '2015 - 2019',
-      grade: 'CGPA: 8.2/10',
+      field: 'Information Technology',
+      institution: 'K S Rangasamy College of Technology',
+      location: 'Namakkal, Tamil Nadu',
+      period: '2023 - 2027',
+      grade: 'CGPA: 7.8/10',
       highlights: [
         'Specialized in Cloud Computing and Distributed Systems',
         'Final Year Project: Automated Infrastructure Deployment',
@@ -43,11 +43,11 @@ const Education = () => {
     },
     {
       degree: 'Higher Secondary Certificate',
-      field: 'Computer Science',
-      institution: 'Government Higher Secondary School',
+      field: 'Science',
+      institution: 'Sri Vidya Mandir Matriculation Higher Secondary School',
       location: 'Namakkal, Tamil Nadu',
-      period: '2013 - 2015',
-      grade: 'Percentage: 92%',
+      period: '2022 - 2023',
+      grade: 'Percentage: 81%',
       highlights: [
         'State Board Topper in Computer Science',
         'Active participant in Science Exhibitions',

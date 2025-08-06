@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { MapPin, Mail, Phone, Linkedin, Github, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import ParticleSystem from './ParticleSystem';
-import profilePhoto from '../assets/profile-photo.jpg'
+import profilePhoto from '../assets/profile-photo.png'
 import heroBg from '../assets/hero-bg.jpg'
 
 const Hero = () => {
@@ -15,7 +15,7 @@ const Hero = () => {
   const contactItems = [
     { icon: MapPin, text: 'Namakkal, Tamil Nadu, India', href: '' },
     { icon: Mail, text: 'praveen.fresher@gmail.com', href: 'mailto:praveen.fresher@gmail.com' },
-    { icon: Phone, text: '+91-9876543210', href: 'tel:+919876543210' },
+    { icon: Phone, text: '+91-6382832865', href: 'tel:+916382832865' },
     { icon: Linkedin, text: 'LinkedIn Profile', href: '#' },
     { icon: Github, text: 'GitHub Profile', href: '#' }
   ];
