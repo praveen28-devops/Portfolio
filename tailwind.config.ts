@@ -64,10 +64,10 @@ export default {
 					elevated: 'hsl(var(--surface-elevated))',
 					glass: 'hsl(var(--surface-glass))'
 				},
-				neon: {
-					blue: 'hsl(var(--neon-blue))',
-					cyan: 'hsl(var(--neon-cyan))',
-					purple: 'hsl(var(--neon-purple))'
+				highlight: {
+					blue: 'hsl(var(--highlight-blue))',
+					teal: 'hsl(var(--highlight-teal))',
+					gray: 'hsl(var(--highlight-gray))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

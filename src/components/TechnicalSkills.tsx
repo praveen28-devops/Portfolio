@@ -91,12 +91,12 @@ const TechnicalSkills = () => {
   ];
 
   const proficiencyLevels = [
-    { name: 'AWS', level: 95, category: 'Cloud' },
-    { name: 'Docker', level: 92, category: 'Container' },
-    { name: 'Kubernetes', level: 88, category: 'Container' },
-    { name: 'Terraform', level: 90, category: 'IaC' },
-    { name: 'Python', level: 85, category: 'Programming' },
-    { name: 'Jenkins', level: 87, category: 'CI/CD' }
+    { name: 'AWS', level: 75, category: 'Cloud' },
+    { name: 'Docker', level: 80, category: 'Container' },
+    { name: 'Linux', level: 85, category: 'OS' },
+    { name: 'Git', level: 90, category: 'Version Control' },
+    { name: 'Python', level: 70, category: 'Programming' },
+    { name: 'Jenkins', level: 65, category: 'CI/CD' }
   ];
 
   return (

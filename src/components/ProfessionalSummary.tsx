@@ -29,23 +29,23 @@ const ProfessionalSummary = () => {
   const highlights = [
     {
       icon: Code,
-      title: 'Automation Expert',
-      description: 'Building efficient CI/CD pipelines and infrastructure as code'
+      title: 'Quick Learner',
+      description: 'Rapidly acquiring new technologies and development practices'
     },
     {
       icon: Cloud,
-      title: 'Cloud Architect',
-      description: 'Designing scalable solutions on AWS, Azure, and GCP platforms'
+      title: 'Cloud Enthusiast',
+      description: 'Passionate about AWS, Azure, and modern cloud architectures'
     },
     {
       icon: Zap,
-      title: 'Performance Optimizer',
-      description: 'Optimizing system performance and reducing deployment times'
+      title: 'Problem Solver',
+      description: 'Analytical approach to troubleshooting and optimization'
     },
     {
       icon: Shield,
-      title: 'Security Focused',
-      description: 'Implementing DevSecOps practices and security best practices'
+      title: 'Quality Focused',
+      description: 'Committed to best practices and secure coding standards'
     }
   ];
 
@@ -70,14 +70,14 @@ const ProfessionalSummary = () => {
         <div className={`mb-16 transition-all duration-1000 delay-300 ${isVisible ? 'fade-in-scale' : 'opacity-0 scale-95'}`}>
           <div className="glass-card p-8 md:p-12 rounded-3xl perspective-card">
             <p className="text-lg md:text-xl leading-relaxed text-center text-foreground">
-              <span className="text-accent font-semibold">5+ years</span> of experience in DevOps and Cloud Engineering, 
-              specializing in automating infrastructure, streamlining deployment processes, and building resilient cloud architectures. 
-              Proven track record of reducing deployment times by <span className="text-accent font-semibold">60%</span> and 
-              improving system reliability by <span className="text-accent font-semibold">90%</span> through innovative automation solutions.
+              <span className="text-accent font-semibold">Recent graduate</span> with strong fundamentals in DevOps and Cloud technologies, 
+              specializing in learning automation, cloud infrastructure, and modern deployment practices. 
+              Through academic projects and personal learning, I've gained hands-on experience with <span className="text-accent font-semibold">containerization</span> and 
+              <span className="text-accent font-semibold"> CI/CD pipelines</span>, ready to apply these skills in real-world scenarios.
             </p>
             <p className="text-lg md:text-xl leading-relaxed text-center text-foreground mt-6">
-              Passionate about implementing cutting-edge technologies and best practices to deliver scalable, 
-              secure, and cost-effective solutions that drive business growth and operational excellence.
+              Eager to contribute to innovative teams and continue growing my expertise in cloud-native technologies, 
+              automation tools, and scalable system design while delivering value from day one.
             </p>
           </div>
         </div>
@@ -110,16 +110,16 @@ const ProfessionalSummary = () => {
           <div className="glass-card p-8 rounded-3xl">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">5+</div>
-                <div className="text-muted-foreground">Years Experience</div>
+                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">2+</div>
+                <div className="text-muted-foreground">Years Learning</div>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">50+</div>
-                <div className="text-muted-foreground">Projects Completed</div>
+                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">10+</div>
+                <div className="text-muted-foreground">Projects Built</div>
               </div>
               <div>
-                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">15+</div>
-                <div className="text-muted-foreground">Technologies Mastered</div>
+                <div className="text-4xl md:text-5xl font-bold text-accent mb-2">8+</div>
+                <div className="text-muted-foreground">Technologies Learned</div>
               </div>
             </div>
           </div>
