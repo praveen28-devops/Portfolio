@@ -5,17 +5,31 @@ import TechnicalSkills from '@/components/TechnicalSkills';
 import Education from '@/components/Education';
 import Projects from '@/components/Projects';
 import Leadership from '@/components/Leadership';
+import ScrollAnimations from '@/components/ScrollAnimations';
+import ThreeScene from '@/components/ThreeScene';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <ThreeScene />
+      <ScrollAnimations />
       <Navigation />
       <Hero />
-      <ProfessionalSummary />
-      <TechnicalSkills />
-      <Education />
-      <Projects />
-      <Leadership />
+      <div className="section-reveal">
+        <ProfessionalSummary />
+      </div>
+      <div className="section-reveal">
+        <TechnicalSkills />
+      </div>
+      <div className="section-reveal">
+        <Education />
+      </div>
+      <div className="section-reveal">
+        <Projects />
+      </div>
+      <div className="section-reveal">
+        <Leadership />
+      </div>
     </div>
   );
 };

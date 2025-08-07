@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { MapPin, Mail, Phone, Linkedin, Github, Download } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 import ParticleSystem from './ParticleSystem';
 import profilePhoto from '../assets/profile-photo.png'
 import heroBg from '../assets/hero-bg.jpg'
@@ -21,15 +22,18 @@ const Hero = () => {
   ];
 
   return (
-    <section 
+    <motion.section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16 hero-content"
       style={{
         backgroundImage: `linear-gradient(135deg, hsl(215 75% 15% / 0.95), hsl(190 85% 45% / 0.9)), url(${heroBg})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      transition={{ duration: 1.5, ease: "easeOut" }}
     >
       {/* Particle System */}
       <ParticleSystem count={150} />
@@ -45,83 +49,172 @@ const Hero = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
           {/* Enhanced Profile Section with Real Image */}
-          <div className={`mb-10 transition-all duration-1600 ${isVisible ? 'fade-in-scale' : 'opacity-155'}`}>
+          <motion.div 
+            className="mb-10"
+            initial={{ opacity: 0, scale: 0.5, rotateY: 45 }}
+            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
+            transition={{ duration: 1.2, delay: 0.3, ease: "backOut" }}
+          >
             <div className="relative inline-block mb-6">
-              <div className="w-[320px] h-[320px] mx-auto rounded-full glass-card p-2 floating-card super-elevated">
+              <motion.div 
+                className="w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] md:w-[320px] md:h-[320px] mx-auto rounded-full glass-card p-2 floating-card super-elevated"
+                whileHover={{ scale: 1.05, rotateY: 15 }}
+                transition={{ duration: 0.3 }}
+              >
                 <div className="w-full h-full rounded-full overflow-hidden relative image-overlay">
                   <img 
                     src={profilePhoto} 
-                    alt="Praveen A" 
+                    alt="Praveen A - DevOps Engineer" 
                     className="w-full h-full object-cover"
                   />
                 </div>
-              </div>
-              <div className="absolute -top-2 -right-2 w-8 h-8 bg-accent rounded-full glow-accent animate-ping"></div>
-              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-primary-glow rounded-full glow-liteblue" style={{ animationDelay: '1s' }}></div>
+              </motion.div>
+              <motion.div 
+                className="absolute -top-2 -right-2 w-6 h-6 sm:w-8 sm:h-8 bg-accent rounded-full glow-accent"
+                animate={{ scale: [1, 1.2, 1], opacity: [1, 0.7, 1] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <motion.div 
+                className="absolute -bottom-2 -left-2 w-4 h-4 sm:w-6 sm:h-6 bg-primary-glow rounded-full glow-liteblue"
+                animate={{ scale: [1, 1.3, 1], opacity: [1, 0.6, 1] }}
+                transition={{ duration: 2.5, repeat: Infinity, delay: 1 }}
+              />
             </div>
-          </div>
+          </motion.div>
 
           {/* Enhanced Name and Title */}
-          <div className={`mb-8 transition-all duration-1500 delay-300 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-8xl md:text-8xl font-bold mb-6 text-glow-blue">
-              <span className="text-6x1 md:text-8x1 font-extrabold mb-15
-               text-transparent bg-clip-text 
-               bg-gradient-to-r from-blue-400 via-teal-300 to-blue-600 
-               animate-pulse">
+          <motion.div 
+            className="mb-8"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          >
+            <motion.h1 
+              className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-6 text-glow-blue"
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2, delay: 0.8 }}
+            >
+              <motion.span 
+                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-blue-600 block"
+                animate={{ 
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }}
+                transition={{ duration: 3, repeat: Infinity }}
+                style={{ backgroundSize: "200% 200%" }}
+              >
                 Praveen A
-              </span>
-            </h1>
-            <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4 text-glow">
+              </motion.span>
+            </motion.h1>
+            <motion.h2 
+              className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-6 text-glow"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 1 }}
+            >
               Aspiring DevOps Engineer
-            </h2>
-            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+            </motion.h2>
+            <motion.p 
+              className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed px-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 1.2 }}
+            >
               Fresh Computer Science graduate passionate about cloud technologies, automation, and building scalable systems. 
               Ready to contribute to innovative projects and grow in the DevOps field.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           {/* Enhanced Contact Info with 3D Effects */}
-          <div className={`mb-8 transition-all duration-1500 delay-500 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-            <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+          <motion.div 
+            className="mb-8"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
+          >
+            <div className="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-5xl mx-auto px-4">
               {contactItems.map((item, index) => (
-                <a
-  key={index}
-  href={item.href}
-  className={`px-6 py-3 rounded-full bg-blue-900 hover:bg-blue-700 text-white 
-    hover:super-elevated transition-all duration-500 group tilt-card`}
-  style={{ transitionDelay: `${700 + index * 100}ms` }}
->
-  <div className="flex items-center space-x-3 text-sm">
-    <item.icon className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
-    <span className="font-medium">{item.text}</span>
-  </div>
-</a>
-
-
+                <motion.a
+                  key={index}
+                  href={item.href}
+                  className="glass-card px-3 sm:px-6 py-2 sm:py-3 rounded-full hover:super-elevated transition-all duration-500 group tilt-card"
+                  initial={{ opacity: 0, y: 30, rotateX: 45 }}
+                  animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: 1.6 + index * 0.1,
+                    ease: "backOut"
+                  }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    rotateY: 10,
+                    boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)"
+                  }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <div className="flex items-center space-x-2 sm:space-x-3 text-xs sm:text-sm">
+                    <motion.div
+                      whileHover={{ rotate: 360, scale: 1.2 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-accent group-hover:text-accent-glow transition-colors duration-300" />
+                    </motion.div>
+                    <span className="text-white group-hover:text-accent transition-colors duration-300 font-medium">
+                      {item.text}
+                    </span>
+                  </div>
+                </motion.a>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Enhanced CTA Buttons with Advanced 3D Effects */}
-          <div className={`transition-all duration-1500 delay-700 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <Button 
-                size="lg" 
-                className="bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent text-white font-bold px-10 py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-lg"
+          <motion.div 
+            className="px-4"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.8 }}
+          >
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center">
+              <motion.div
+                whileHover={{ scale: 1.05, rotateX: 10 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3 }}
               >
-                <Download className="h-6 w-6 mr-3 group-hover:animate-bounce" />
-                Download Resume
-              </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent text-white font-bold px-10 py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-lg"
+                <Button 
+                  size="lg" 
+                  className="bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent text-white font-bold px-6 sm:px-10 py-3 sm:py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-sm sm:text-lg w-full sm:w-auto"
+                >
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Download className="h-5 w-5 sm:h-6 sm:w-6 mr-2 sm:mr-3" />
+                  </motion.div>
+                  Download Resume
+                </Button>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05, rotateX: 10 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.3 }}
               >
-                View Projects
-                <Github className="h-6 w-6 mr-3 group-hover:animate-bounce" />
-              </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="glass-card border-accent text-white hover:bg-accent/20 font-bold px-6 sm:px-10 py-3 sm:py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-sm sm:text-lg w-full sm:w-auto"
+                >
+                  View Projects
+                  <motion.div
+                    whileHover={{ rotate: 360 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Github className="h-5 w-5 sm:h-6 sm:w-6 ml-2 sm:ml-3" />
+                  </motion.div>
+                </Button>
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
 
@@ -131,7 +224,7 @@ const Hero = () => {
           <div className="w-2 h-4 bg-accent rounded-full mt-3 animate-ping glow-accent"></div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 };
 
