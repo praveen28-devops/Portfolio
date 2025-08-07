@@ -96,24 +96,19 @@ const ConnectionLines = ({ services }: any) => {
 
   return (
     <group ref={linesRef}>
-      {lines.map((points, index) => (
-        <line key={index}>
-          <bufferGeometry>
-            <bufferAttribute
-              attach="attributes-position"
-              count={points.length}
-              array={new Float32Array(points.flatMap(p => [p.x, p.y, p.z]))}
-              itemSize={3}
-            />
-          </bufferGeometry>
-          <lineBasicMaterial
-            color="#00d4ff"
-            transparent
-            opacity={0.5}
-            linewidth={2}
+      {lines.map((points, index) => {
+        const geometry = new THREE.BufferGeometry().setFromPoints(points);
+        return (
+          <primitive 
+            key={index} 
+            object={new THREE.Line(geometry, new THREE.LineBasicMaterial({ 
+              color: '#00d4ff', 
+              transparent: true, 
+              opacity: 0.5 
+            }))} 
           />
-        </line>
-      ))}
+        );
+      })}
     </group>
   );
 };
