@@ -1,5 +1,6 @@
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
+import CloudInfrastructure3D from '@/components/CloudInfrastructure3D';
 import ProfessionalSummary from '@/components/ProfessionalSummary';
 import TechnicalSkills from '@/components/TechnicalSkills';
 import Education from '@/components/Education';
@@ -15,6 +16,9 @@ const Index = () => {
       <ScrollAnimations />
       <Navigation />
       <Hero />
+      <div className="section-reveal">
+        <CloudInfrastructure3D />
+      </div>
       <div className="section-reveal">
         <ProfessionalSummary />
       </div>

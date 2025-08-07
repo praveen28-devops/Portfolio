@@ -189,6 +189,23 @@
     animation: floatSlow 12s ease-in-out infinite;
   }
 
+  /* Performance optimizations */
+  .section-reveal {
+    will-change: transform, opacity;
+    transform: translateZ(0);
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .floating-card {
+      animation-duration: 4s;
+    }
+    
+    .super-elevated {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+  }
+
   .glow-accent {
     box-shadow: 
       0 0 40px hsl(var(--shadow-glow)),
