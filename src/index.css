@@ -208,11 +208,23 @@
     transition: var(--transition-elastic);
   }
 
-  .perspective-card:hover {
-    transform: rotateX(8deg) rotateY(12deg) translateY(-15px) scale(1.02);
+  .perspective-card:hover,
+  .perspective-card:active {
+    transform: rotateX(4deg) rotateY(6deg) translateY(-8px) scale(1.01);
     box-shadow: 
-      0 40px 80px hsl(var(--shadow-xl)),
-      0 20px 40px hsl(var(--shadow-large));
+      0 25px 50px hsl(var(--shadow-xl)),
+      0 12px 25px hsl(var(--shadow-large));
+  }
+
+  /* Mobile optimizations */
+  @media (max-width: 768px) {
+    .perspective-card:hover,
+    .perspective-card:active {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 
+        0 15px 30px hsl(var(--shadow-large)),
+        0 8px 15px hsl(var(--shadow-medium));
+    }
   }
 
   .tilt-card {
@@ -351,6 +363,40 @@
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  /* Touch-friendly UI elements */
+  .touch-manipulation {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Mobile performance optimizations */
+  @media (max-width: 768px) {
+    .floating-card {
+      animation: none; /* Disable complex animations on mobile */
+    }
+    
+    .glass-card {
+      backdrop-filter: blur(10px); /* Reduce blur for better performance */
+    }
+    
+    .elevated-card {
+      box-shadow: 
+        0 15px 30px hsl(var(--shadow-large)),
+        0 8px 15px hsl(var(--shadow-medium));
+    }
+  }
+
+  /* Reduced motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 

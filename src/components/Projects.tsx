@@ -163,85 +163,81 @@ const Projects = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`glass-card rounded-3xl overflow-hidden perspective-card transition-all duration-1000 ${
+              className={`glass-card rounded-2xl md:rounded-3xl overflow-hidden perspective-card transition-all duration-700 touch-manipulation ${
                 isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'
               } ${hoveredProject === index ? 'elevated-card' : ''}`}
-              style={{ transitionDelay: `${300 + index * 150}ms` }}
+              style={{ transitionDelay: `${200 + index * 100}ms` }}
               onMouseEnter={() => setHoveredProject(index)}
               onMouseLeave={() => setHoveredProject(null)}
+              onTouchStart={() => setHoveredProject(index)}
+              onTouchEnd={() => setHoveredProject(null)}
             >
               {/* Project Header */}
-              <div className={`p-6 bg-gradient-to-r ${project.color} relative overflow-hidden`}>
+              <div className={`p-4 md:p-6 bg-gradient-to-r ${project.color} relative overflow-hidden`}>
                 <div className="absolute inset-0 opacity-20">
-                  <div className="absolute -top-4 -right-4 w-24 h-24 bg-white/20 rounded-full blur-xl"></div>
-                  <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-white/10 rounded-full blur-xl"></div>
+                  <div className="absolute -top-2 -right-2 w-16 h-16 md:w-24 md:h-24 bg-white/20 rounded-full blur-xl"></div>
+                  <div className="absolute -bottom-2 -left-2 w-20 h-20 md:w-32 md:h-32 bg-white/10 rounded-full blur-xl"></div>
                 </div>
-                <div className="relative z-10 flex items-start justify-between">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
-                      <project.icon className="h-6 w-6 text-white" />
+                <div className="relative z-10">
+                  <div className="flex items-center space-x-3 md:space-x-4 mb-3">
+                    <div className="w-10 h-10 md:w-12 md:h-12 bg-white/20 rounded-xl flex items-center justify-center backdrop-blur-sm">
+                      <project.icon className="h-5 w-5 md:h-6 md:w-6 text-white" />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                      <div className="flex items-center space-x-4 text-white/80 text-sm">
-                        <Button 
-                          variant="ghost" 
-                          size="sm" 
-                          className="text-white/80 hover:text-white hover:bg-white/20 p-0 h-auto"
-                        >
-                          <Github className="h-4 w-4 mr-1" />
-                          Code
-                        </Button>
-                        <Button 
-                          variant="ghost" 
-                          size="sm" 
-                          className="text-white/80 hover:text-white hover:bg-white/20 p-0 h-auto"
-                        >
-                          <ExternalLink className="h-4 w-4 mr-1" />
-                          Demo
-                        </Button>
-                      </div>
-                    </div>
+                    <h3 className="text-lg md:text-xl font-bold text-white leading-tight">{project.title}</h3>
+                  </div>
+                  <div className="flex items-center space-x-3 md:space-x-4 text-white/80 text-sm">
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="text-white/80 hover:text-white hover:bg-white/20 p-1 h-auto text-xs md:text-sm touch-manipulation"
+                    >
+                      <Github className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                      Code
+                    </Button>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className="text-white/80 hover:text-white hover:bg-white/20 p-1 h-auto text-xs md:text-sm touch-manipulation"
+                    >
+                      <ExternalLink className="h-3 w-3 md:h-4 md:w-4 mr-1" />
+                      Demo
+                    </Button>
                   </div>
                 </div>
               </div>
 
               {/* Project Content */}
-              <div className="p-6">
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+              <div className="p-4 md:p-6">
+                <p className="text-muted-foreground mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
                   {project.description}
                 </p>
 
                 {/* Key Highlights */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-primary mb-3">Key Achievements</h4>
-                  <div className="space-y-2">
-                    {project.highlights.map((highlight, hIndex) => (
+                <div className="mb-4 md:mb-6">
+                  <h4 className="text-xs md:text-sm font-semibold text-primary mb-2 md:mb-3">Key Achievements</h4>
+                  <div className="space-y-1.5 md:space-y-2">
+                    {project.highlights.slice(0, 2).map((highlight, hIndex) => (
                       <div key={hIndex} className="flex items-start space-x-2">
-                        <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                        <p className="text-sm text-muted-foreground">{highlight}</p>
+                        <div className="w-1.5 h-1.5 bg-accent rounded-full mt-1.5 md:mt-2 flex-shrink-0"></div>
+                        <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">{highlight}</p>
                       </div>
                     ))}
                   </div>
                 </div>
 
-                {/* Metrics */}
-                <div className="mb-6">
-                  <h4 className="text-sm font-semibold text-primary mb-3">Impact Metrics</h4>
-                  <div className="grid grid-cols-1 gap-2">
-                    <div className="flex justify-between items-center text-sm">
+                {/* Metrics - Condensed for mobile */}
+                <div className="mb-4 md:mb-6">
+                  <h4 className="text-xs md:text-sm font-semibold text-primary mb-2 md:mb-3">Impact Metrics</h4>
+                  <div className="grid grid-cols-1 gap-1.5 md:gap-2">
+                    <div className="flex justify-between items-center text-xs md:text-sm">
                       <span className="text-muted-foreground">Performance:</span>
                       <span className="text-accent font-medium">{project.metrics.performance}</span>
                     </div>
-                    <div className="flex justify-between items-center text-sm">
-                      <span className="text-muted-foreground">Cost Efficiency:</span>
-                      <span className="text-accent font-medium">{project.metrics.cost}</span>
-                    </div>
-                    <div className="flex justify-between items-center text-sm">
+                    <div className="flex justify-between items-center text-xs md:text-sm">
                       <span className="text-muted-foreground">Reliability:</span>
                       <span className="text-accent font-medium">{project.metrics.reliability}</span>
                     </div>
@@ -250,12 +246,12 @@ const Projects = () => {
 
                 {/* Technologies */}
                 <div>
-                  <h4 className="text-sm font-semibold text-primary mb-3">Technologies Used</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.map((tech, tIndex) => (
+                  <h4 className="text-xs md:text-sm font-semibold text-primary mb-2 md:mb-3">Technologies</h4>
+                  <div className="flex flex-wrap gap-1.5 md:gap-2">
+                    {project.technologies.slice(0, 4).map((tech, tIndex) => (
                       <span
                         key={tIndex}
-                        className="px-3 py-1 bg-secondary-elevated text-foreground text-xs font-medium rounded-full hover:bg-accent-soft hover:text-accent transition-colors duration-300"
+                        className="px-2 py-1 md:px-3 bg-secondary-elevated text-foreground text-xs font-medium rounded-full hover:bg-accent-soft hover:text-accent transition-colors duration-200 touch-manipulation"
                       >
                         {tech}
                       </span>
