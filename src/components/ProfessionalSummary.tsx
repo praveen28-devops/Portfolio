@@ -50,7 +50,7 @@ const ProfessionalSummary = () => {
   ];
 
   return (
-    <section id="summary" className="py-20 relative overflow-hidden">
+    <section id="summary" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 right-20 w-64 h-64 bg-accent/30 rounded-full blur-3xl floating-card"></div>
@@ -59,11 +59,11 @@ const ProfessionalSummary = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <div className={`text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-[clamp(1.75rem,6vw,3rem)] sm:text-[clamp(2rem,6vw,3.5rem)] md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
             Professional Summary
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
+          <div className="w-16 sm:w-20 md:w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
         </div>
 
         {/* Main Summary Card */}

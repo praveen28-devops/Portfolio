@@ -371,7 +371,7 @@
     -webkit-tap-highlight-color: transparent;
   }
 
-  /* Mobile performance optimizations */
+  /* Mobile performance optimizations and responsive spacing */
   @media (max-width: 768px) {
     .floating-card {
       animation: none; /* Disable complex animations on mobile */
@@ -379,12 +379,23 @@
     
     .glass-card {
       backdrop-filter: blur(10px); /* Reduce blur for better performance */
+      padding: 1rem; /* Reduce padding on mobile */
     }
     
     .elevated-card {
       box-shadow: 
         0 15px 30px hsl(var(--shadow-large)),
         0 8px 15px hsl(var(--shadow-medium));
+    }
+
+    /* Compact mobile spacing */
+    section {
+      padding-top: 3rem !important;
+      padding-bottom: 3rem !important;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.2 !important;
     }
   }
 

@@ -23,7 +23,7 @@ const Hero = () => {
   return (
     <section 
       id="hero" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-16"
+      className="min-h-screen flex items-center justify-center relative overflow-hidden pt-12 sm:pt-16"
       style={{
         backgroundImage: `linear-gradient(135deg, hsl(215 75% 15% / 0.95), hsl(190 85% 45% / 0.9)), url(${heroBg})`,
         backgroundSize: 'cover',
@@ -44,10 +44,10 @@ const Hero = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center">
-          {/* Enhanced Profile Section with Real Image */}
-          <div className={`mb-10 transition-all duration-1600 ${isVisible ? 'fade-in-scale' : 'opacity-155'}`}>
-            <div className="relative inline-block mb-6">
-              <div className="w-[320px] h-[320px] mx-auto rounded-full glass-card p-2 floating-card super-elevated">
+          {/* Enhanced Profile Section with Responsive Image */}
+          <div className={`mb-6 sm:mb-8 md:mb-10 transition-all duration-1600 ${isVisible ? 'fade-in-scale' : 'opacity-155'}`}>
+            <div className="relative inline-block mb-4 sm:mb-6">
+              <div className="w-[200px] h-[200px] sm:w-[260px] sm:h-[260px] md:w-[320px] md:h-[320px] mx-auto rounded-full glass-card p-2 floating-card super-elevated">
                 <div className="w-full h-full rounded-full overflow-hidden relative image-overlay">
                   <img 
                     src={profilePhoto} 
@@ -56,69 +56,65 @@ const Hero = () => {
                   />
                 </div>
               </div>
-              <div className="absolute -top-2 -right-2 w-8 h-8 bg-accent rounded-full glow-accent animate-ping"></div>
-              <div className="absolute -bottom-2 -left-2 w-6 h-6 bg-primary-glow rounded-full glow-liteblue" style={{ animationDelay: '1s' }}></div>
+              <div className="absolute -top-1 -right-1 sm:-top-2 sm:-right-2 w-6 h-6 sm:w-8 sm:h-8 bg-accent rounded-full glow-accent animate-ping"></div>
+              <div className="absolute -bottom-1 -left-1 sm:-bottom-2 sm:-left-2 w-4 h-4 sm:w-6 sm:h-6 bg-primary-glow rounded-full glow-liteblue" style={{ animationDelay: '1s' }}></div>
             </div>
           </div>
 
-          {/* Enhanced Name and Title */}
-          <div className={`mb-8 transition-all duration-1500 delay-300 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-            <h1 className="text-8xl md:text-8xl font-bold mb-6 text-glow-blue">
-              <span className="text-6x1 md:text-8x1 font-extrabold mb-15
-               text-transparent bg-clip-text 
-               bg-gradient-to-r from-blue-400 via-teal-300 to-blue-600 
-               animate-pulse">
+          {/* Enhanced Name and Title with Responsive Typography */}
+          <div className={`mb-6 sm:mb-8 transition-all duration-1500 delay-300 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
+            <h1 className="text-[clamp(2rem,8vw,5rem)] sm:text-[clamp(3rem,8vw,6rem)] md:text-8xl font-bold mb-3 sm:mb-4 md:mb-6 text-glow-blue">
+              <span className="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-teal-300 to-blue-600 animate-pulse">
                 Praveen A
               </span>
             </h1>
-            <h2 className="text-3xl md:text-4xl font-semibold text-white mb-4 text-glow">
+            <h2 className="text-[clamp(1.25rem,5vw,2.5rem)] sm:text-[clamp(1.5rem,5vw,3rem)] md:text-4xl font-semibold text-white mb-3 sm:mb-4 text-glow">
               Aspiring DevOps Engineer
             </h2>
-            <p className="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-[clamp(1rem,4vw,1.25rem)] sm:text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed px-4">
               Fresh Computer Science graduate passionate about cloud technologies, automation, and building scalable systems. 
               Ready to contribute to innovative projects and grow in the DevOps field.
             </p>
           </div>
 
-          {/* Enhanced Contact Info with 3D Effects */}
-          <div className={`mb-8 transition-all duration-1500 delay-500 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-            <div className="flex flex-wrap justify-center gap-4 max-w-5xl mx-auto">
+          {/* Enhanced Contact Info with Mobile-Optimized Layout */}
+          <div className={`mb-6 sm:mb-8 transition-all duration-1500 delay-500 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 md:gap-4 max-w-5xl mx-auto px-2">
               {contactItems.map((item, index) => (
                 <a
-  key={index}
-  href={item.href}
-  className={`px-6 py-3 rounded-full bg-blue-900 hover:bg-blue-700 text-white 
-    hover:super-elevated transition-all duration-500 group tilt-card`}
-  style={{ transitionDelay: `${700 + index * 100}ms` }}
->
-  <div className="flex items-center space-x-3 text-sm">
-    <item.icon className="h-5 w-5 text-white group-hover:scale-110 transition-transform duration-300" />
-    <span className="font-medium">{item.text}</span>
-  </div>
-</a>
-
-
+                  key={index}
+                  href={item.href}
+                  className={`px-3 py-2 sm:px-4 sm:py-2 md:px-6 md:py-3 rounded-full bg-blue-900 hover:bg-blue-700 text-white 
+                    hover:super-elevated transition-all duration-500 group tilt-card touch-manipulation`}
+                  style={{ transitionDelay: `${700 + index * 100}ms` }}
+                >
+                  <div className="flex items-center space-x-2 text-xs sm:text-sm">
+                    <item.icon className="h-4 w-4 sm:h-5 sm:w-5 text-white group-hover:scale-110 transition-transform duration-300" />
+                    <span className="font-medium hidden sm:inline">{item.text}</span>
+                    <span className="font-medium sm:hidden">{item.text.split(' ')[0]}</span>
+                  </div>
+                </a>
               ))}
             </div>
           </div>
 
-          {/* Enhanced CTA Buttons with Advanced 3D Effects */}
+          {/* Enhanced CTA Buttons with Mobile-Responsive Design */}
           <div className={`transition-all duration-1500 delay-700 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center items-center px-4">
               <Button 
                 size="lg" 
-                className="bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent text-white font-bold px-10 py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-lg"
+                className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent text-white font-bold px-6 py-3 sm:px-8 sm:py-3 md:px-10 md:py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-sm sm:text-base md:text-lg touch-manipulation"
               >
-                <Download className="h-6 w-6 mr-3 group-hover:animate-bounce" />
+                <Download className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 mr-2 sm:mr-3 group-hover:animate-bounce" />
                 Download Resume
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
-                className="bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent text-white font-bold px-10 py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-lg"
+                className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent text-white font-bold px-6 py-3 sm:px-8 sm:py-3 md:px-10 md:py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-sm sm:text-base md:text-lg touch-manipulation"
               >
                 View Projects
-                <Github className="h-6 w-6 mr-3 group-hover:animate-bounce" />
+                <Github className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 ml-2 sm:ml-3 group-hover:animate-bounce" />
               </Button>
             </div>
           </div>
