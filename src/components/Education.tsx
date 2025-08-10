@@ -5,6 +5,7 @@ import GeometricShapes from './GeometricShapes';
 const Education = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [flippedCards, setFlippedCards] = useState<number[]>([]);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -21,10 +22,19 @@ const Education = () => {
       observer.observe(element);
     }
 
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     return () => {
       if (element) {
         observer.unobserve(element);
       }
+      window.removeEventListener('resize', checkMobile);
     };
   }, []);
 
@@ -117,69 +127,69 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="py-20 relative overflow-hidden">
-      {/* Animated Background */}
-      <GeometricShapes shapeCount={10} />
+    <section id="education" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
+      {/* Animated Background - Reduced on mobile */}
+      {!isMobile && <GeometricShapes shapeCount={10} />}
       
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 right-20 w-80 h-80 bg-accent/30 rounded-full blur-3xl floating-card"></div>
-        <div className="absolute bottom-20 left-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl floating-card" style={{ animationDelay: '2s' }}></div>
+      {/* Background Elements - Simplified for mobile */}
+      <div className="absolute inset-0 opacity-5 sm:opacity-10">
+        <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-accent/30 rounded-full blur-2xl sm:blur-3xl floating-card"></div>
+        <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-32 h-32 sm:w-64 sm:h-64 bg-primary/20 rounded-full blur-2xl sm:blur-3xl floating-card" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <div className={`text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-[clamp(1.75rem,6vw,3rem)] sm:text-[clamp(2rem,6vw,3.5rem)] md:text-[clamp(3rem,6vw,4rem)] lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight">
             Education & Certifications
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
+          <div className="w-12 sm:w-16 md:w-20 lg:w-24 h-0.5 sm:h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
         </div>
 
         {/* Education Section */}
-        <div className="mb-20">
-          <h3 className={`text-2xl font-bold text-center mb-8 text-primary transition-all duration-1000 delay-300 ${isVisible ? 'slide-in-left' : 'opacity-0 -translate-x-10'}`}>
+        <div className="mb-12 sm:mb-16 md:mb-20">
+          <h3 className={`text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-primary transition-all duration-1000 delay-300 ${isVisible ? 'slide-in-left' : 'opacity-0 -translate-x-10'}`}>
             Academic Background
           </h3>
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8">
             {education.map((edu, index) => (
               <div
                 key={index}
-                className={`glass-card p-6 sm:p-8 rounded-3xl transition-all duration-1000 ${
+                className={`glass-card p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl transition-all duration-1000 ${
                   isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
                 }`}
                 style={{ transitionDelay: `${400 + index * 150}ms` }}
               >
-                <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-8">
-                  <div className="flex-shrink-0 mb-4 lg:mb-0">
-                    <div className="w-16 h-16 bg-gradient-to-br from-primary to-accent rounded-2xl flex items-center justify-center glow-accent">
-                      <GraduationCap className="h-8 w-8 text-white" />
+                <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-6 sm:lg:space-x-8">
+                  <div className="flex-shrink-0 mb-3 sm:mb-4 lg:mb-0">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-primary to-accent rounded-xl sm:rounded-2xl flex items-center justify-center glow-accent">
+                      <GraduationCap className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
                     </div>
                   </div>
                   <div className="flex-grow">
-                    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
+                    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-3 sm:mb-4">
                       <div>
-                        <h4 className="text-xl font-bold text-primary mb-1">{edu.degree}</h4>
-                        <p className="text-lg text-accent font-semibold">{edu.field}</p>
-                        <p className="text-foreground">{edu.institution}</p>
+                        <h4 className="text-lg sm:text-xl font-bold text-primary mb-1">{edu.degree}</h4>
+                        <p className="text-base sm:text-lg text-accent font-semibold">{edu.field}</p>
+                        <p className="text-sm sm:text-base text-foreground">{edu.institution}</p>
                       </div>
                       <div className="mt-2 lg:mt-0 lg:text-right">
-                        <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-1">
-                          <Calendar className="h-4 w-4" />
+                        <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground mb-1">
+                          <Calendar className="h-3 w-3 sm:h-4 sm:w-4" />
                           <span>{edu.period}</span>
                         </div>
-                        <div className="flex items-center space-x-2 text-sm text-muted-foreground mb-1">
-                          <MapPin className="h-4 w-4" />
+                        <div className="flex items-center space-x-2 text-xs sm:text-sm text-muted-foreground mb-1">
+                          <MapPin className="h-3 w-3 sm:h-4 sm:w-4" />
                           <span>{edu.location}</span>
                         </div>
-                        <p className="text-accent font-semibold">{edu.grade}</p>
+                        <p className="text-accent font-semibold text-sm sm:text-base">{edu.grade}</p>
                       </div>
                     </div>
-                    <div className="space-y-2">
+                    <div className="space-y-1.5 sm:space-y-2">
                       {edu.highlights.map((highlight, hIndex) => (
                         <div key={hIndex} className="flex items-start space-x-2">
-                          <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                          <p className="text-muted-foreground">{highlight}</p>
+                          <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-accent rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                          <p className="text-xs sm:text-sm text-muted-foreground">{highlight}</p>
                         </div>
                       ))}
                     </div>
@@ -192,10 +202,10 @@ const Education = () => {
 
         {/* Certifications Section */}
         <div>
-          <h3 className={`text-2xl font-bold text-center mb-8 text-primary transition-all duration-1000 delay-700 ${isVisible ? 'slide-in-right' : 'opacity-0 translate-x-10'}`}>
+          <h3 className={`text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 text-primary transition-all duration-1000 delay-700 ${isVisible ? 'slide-in-right' : 'opacity-0 translate-x-10'}`}>
             Professional Certifications
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
             {certifications.map((cert, index) => (
               <a
                 key={index}
@@ -205,22 +215,22 @@ const Education = () => {
                 }`}
                 style={{ transitionDelay: `${600 + index * 100}ms` }}
               >
-                <div className="glass-card rounded-3xl p-4 sm:p-5 md:p-6 h-full transition-all duration-300 group-hover:shadow-lg group-hover:shadow-accent/20">
-                  <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${cert.color} rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Award className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
+                <div className="glass-card rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-5 lg:p-6 h-full transition-all duration-300 group-hover:shadow-lg group-hover:shadow-accent/20">
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br ${cert.color} rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <Award className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
                   </div>
-                  <h4 className="text-sm sm:text-base md:text-lg font-bold text-primary mb-2 line-clamp-2 group-hover:text-accent transition-colors duration-300">{cert.title}</h4>
-                  <p className="text-accent font-semibold mb-2 text-xs sm:text-sm">{cert.issuer}</p>
-                  <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{cert.date}</p>
-                  <div className={`inline-block px-2 sm:px-3 py-1 bg-gradient-to-r ${cert.color} text-white text-xs font-medium rounded-full mb-3`}>
+                  <h4 className="text-sm sm:text-base md:text-lg font-bold text-primary mb-1 sm:mb-2 line-clamp-2 group-hover:text-accent transition-colors duration-300 leading-tight">{cert.title}</h4>
+                  <p className="text-accent font-semibold mb-1 text-xs sm:text-sm">{cert.issuer}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">{cert.date}</p>
+                  <div className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 bg-gradient-to-r ${cert.color} text-white text-xs font-medium rounded-full mb-2 sm:mb-3`}>
                     {cert.level}
                   </div>
                   <div className="mt-auto">
-                    <p className="text-xs text-muted-foreground mb-2">Credential ID:</p>
+                    <p className="text-xs text-muted-foreground mb-1 sm:mb-2">Credential ID:</p>
                     <p className="text-xs font-mono bg-secondary-elevated px-2 py-1 rounded text-center">{cert.credentialId}</p>
                   </div>
-                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ExternalLink className="h-4 w-4 text-accent" />
+                  <div className="absolute top-2 sm:top-3 right-2 sm:right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 text-accent" />
                   </div>
                 </div>
               </a>

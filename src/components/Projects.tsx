@@ -14,6 +14,7 @@ import { Button } from '@/components/ui/button';
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -30,10 +31,19 @@ const Projects = () => {
       observer.observe(element);
     }
 
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
     return () => {
       if (element) {
         observer.unobserve(element);
       }
+      window.removeEventListener('resize', checkMobile);
     };
   }, []);
 
@@ -76,7 +86,7 @@ const Projects = () => {
       title: 'CI/CD Pipeline Optimization',
       description: 'Revolutionized the development workflow by implementing advanced CI/CD pipelines with automated testing, security scanning, and progressive deployments.',
       icon: Zap,
-      technologies: ['Jenkins', 'Docker', 'SonarQube', 'Trivy', 'Selenium', 'Kubernetes'],
+      technologies: ['Jenkins', 'Docker', 'Kubernetes'],
       highlights: [
         'Accelerated release cycles from weeks to hours',
         'Integrated automated security and quality gates',
@@ -142,64 +152,84 @@ const Projects = () => {
     }
   ];
 
+  const handleProjectInteraction = (index: number, isEntering: boolean) => {
+    if (!isMobile) {
+      setHoveredProject(isEntering ? index : null);
+    }
+  };
+
+  const handleProjectClick = (index: number) => {
+    if (isMobile) {
+      // Toggle hover state on mobile for better UX
+      setHoveredProject(hoveredProject === index ? null : index);
+    }
+  };
+
   return (
-    <section id="projects" className="py-20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-20 w-96 h-96 bg-neon-blue/30 rounded-full blur-3xl floating-card"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-neon-purple/20 rounded-full blur-3xl floating-card" style={{ animationDelay: '3s' }}></div>
+    <section id="projects" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
+      {/* Background Elements - Simplified for mobile */}
+      <div className="absolute inset-0 opacity-5 sm:opacity-10">
+        <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-neon-blue/30 rounded-full blur-2xl sm:blur-3xl floating-card"></div>
+        <div className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-neon-purple/20 rounded-full blur-2xl sm:blur-3xl floating-card" style={{ animationDelay: '3s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 transition-all duration-1000 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <div className={`text-center mb-8 sm:mb-12 md:mb-16 transition-all duration-1000 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-[clamp(1.75rem,6vw,3rem)] sm:text-[clamp(2rem,6vw,3.5rem)] md:text-[clamp(3rem,6vw,4rem)] lg:text-5xl font-bold mb-3 sm:mb-4 md:mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent leading-tight">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
-          <p className="text-lg text-muted-foreground mt-6 max-w-3xl mx-auto">
+          <div className="w-12 sm:w-16 md:w-20 lg:w-24 h-0.5 sm:h-1 bg-gradient-to-r from-accent to-primary mx-auto rounded-full"></div>
+          <p className="text-sm sm:text-base md:text-lg text-muted-foreground mt-4 sm:mt-6 max-w-3xl mx-auto">
             Showcasing innovative solutions that drive operational excellence and business growth
           </p>
         </div>
 
-        {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
+        {/* Projects Grid - Mobile Optimized */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 md:gap-6">
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`glass-card rounded-3xl sm:rounded-3xl overflow-hidden transition-all duration-500 touch-manipulation hover:scale-[1.02] ${
+              className={`glass-card rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 touch-manipulation cursor-pointer ${
                 isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
+              } ${hoveredProject === index ? 'scale-[1.02] translate-y-[-4px]' : 'hover:scale-[1.02]'}`}
               style={{ 
                 transitionDelay: `${100 + index * 50}ms`,
-                transform: hoveredProject === index ? 'translateY(-4px)' : 'translateY(0)',
                 transition: 'transform 0.3s ease-out, opacity 0.5s ease-out'
               }}
-              onMouseEnter={() => setHoveredProject(index)}
-              onMouseLeave={() => setHoveredProject(null)}
-              onTouchStart={() => setHoveredProject(index)}
-              onTouchEnd={() => setHoveredProject(null)}
+              onMouseEnter={() => handleProjectInteraction(index, true)}
+              onMouseLeave={() => handleProjectInteraction(index, false)}
+              onClick={() => handleProjectClick(index)}
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  handleProjectClick(index);
+                }
+              }}
             >
               {/* Project Header */}
               <div className={`p-3 sm:p-4 md:p-5 bg-gradient-to-r ${project.color} relative overflow-hidden`}>
                 <div className="absolute inset-0 opacity-20">
-                  <div className="absolute -top-1 -right-1 w-12 h-12 sm:w-16 sm:h-16 bg-white/20 rounded-full blur-xl"></div>
-                  <div className="absolute -bottom-1 -left-1 w-14 h-14 sm:w-20 sm:h-20 bg-white/10 rounded-full blur-xl"></div>
+                  <div className="absolute -top-1 -right-1 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white/20 rounded-full blur-lg sm:blur-xl"></div>
+                  <div className="absolute -bottom-1 -left-1 w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 bg-white/10 rounded-full blur-lg sm:blur-xl"></div>
                 </div>
                 <div className="relative z-10">
                   <div className="flex items-start space-x-2 sm:space-x-3 mb-2 sm:mb-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm flex-shrink-0">
-                      <project.icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/20 rounded-lg sm:rounded-2xl flex items-center justify-center backdrop-blur-sm flex-shrink-0">
+                      <project.icon className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
                     </div>
-                    <h3 className="text-sm sm:text-base md:text-lg font-bold text-white leading-tight">{project.title}</h3>
+                    <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white leading-tight">{project.title}</h3>
                   </div>
                   <div className="flex items-center space-x-2 sm:space-x-3 text-white/80">
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="text-white/80 hover:text-white hover:bg-white/20 px-2 py-1 h-auto text-xs touch-manipulation"
+                      className="text-white/80 hover:text-white hover:bg-white/20 px-1.5 sm:px-2 py-0.5 sm:py-1 h-auto text-xs touch-manipulation"
+                      onClick={(e) => e.stopPropagation()}
                     >
-                      <Github className="h-3 w-3 mr-1" />
+                      <Github className="h-2.5 w-2.5 sm:h-3 sm:w-3 mr-0.5 sm:mr-1" />
                       Code
                     </Button>
                   </div>
@@ -214,11 +244,11 @@ const Projects = () => {
 
                 {/* Key Highlights */}
                 <div className="mb-3 sm:mb-4">
-                  <h4 className="text-xs font-semibold text-primary mb-2">Key Achievements</h4>
+                  <h4 className="text-xs font-semibold text-primary mb-1.5 sm:mb-2">Key Achievements</h4>
                   <div className="space-y-1">
                     {project.highlights.slice(0, 2).map((highlight, hIndex) => (
                       <div key={hIndex} className="flex items-start space-x-1.5">
-                        <div className="w-1 h-1 bg-accent rounded-full mt-1.5 flex-shrink-0"></div>
+                        <div className="w-1 h-1 bg-accent rounded-full mt-1 sm:mt-1.5 flex-shrink-0"></div>
                         <p className="text-xs text-muted-foreground leading-relaxed line-clamp-1">{highlight}</p>
                       </div>
                     ))}
@@ -227,7 +257,7 @@ const Projects = () => {
 
                 {/* Metrics - Condensed for mobile */}
                 <div className="mb-3 sm:mb-4">
-                  <h4 className="text-xs font-semibold text-primary mb-2">Impact</h4>
+                  <h4 className="text-xs font-semibold text-primary mb-1.5 sm:mb-2">Impact</h4>
                   <div className="grid grid-cols-1 gap-1">
                     <div className="flex justify-between items-center text-xs">
                       <span className="text-muted-foreground">Performance:</span>
@@ -242,12 +272,13 @@ const Projects = () => {
 
                 {/* Technologies */}
                 <div>
-                  <h4 className="text-xs font-semibold text-primary mb-2">Tech Stack</h4>
+                  <h4 className="text-xs font-semibold text-primary mb-1.5 sm:mb-2">Tech Stack</h4>
                   <div className="flex flex-wrap gap-1">
                     {project.technologies.slice(0, 3).map((tech, tIndex) => (
                       <span
                         key={tIndex}
-                        className="px-2 py-0.5 bg-secondary-elevated text-foreground text-xs font-medium rounded-full hover:bg-accent-soft hover:text-accent transition-colors duration-200 touch-manipulation"
+                        className="px-1.5 sm:px-2 py-0.5 bg-secondary-elevated text-foreground text-xs font-medium rounded-full hover:bg-accent-soft hover:text-accent transition-colors duration-200 touch-manipulation"
+                        onClick={(e) => e.stopPropagation()}
                       >
                         {tech}
                       </span>
@@ -259,15 +290,15 @@ const Projects = () => {
           ))}
         </div>
 
-        {/* View More Projects */}
-        <div className={`text-center mt-12 transition-all duration-1000 delay-1000 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
+        {/* View More Projects - Mobile Optimized */}
+        <div className={`text-center mt-8 sm:mt-12 transition-all duration-1000 delay-1000 ${isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'}`}>
           <Button 
             variant="outline" 
             size="lg"
-            className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold px-8 py-3 rounded-full transition-all duration-300"
+            className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground font-semibold px-6 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 text-sm sm:text-base touch-manipulation"
           >
             View All Projects
-            <ExternalLink className="h-5 w-5 ml-2" />
+            <ExternalLink className="h-4 w-4 sm:h-5 sm:w-5 ml-1.5 sm:ml-2" />
           </Button>
         </div>
       </div>
