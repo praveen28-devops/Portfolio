@@ -141,47 +141,45 @@ const Leadership = () => {
           <h3 className={`text-2xl font-bold text-center mb-12 text-primary transition-all duration-1000 delay-300 ${isVisible ? 'slide-in-left' : 'opacity-0 -translate-x-10'}`}>
             Leadership Experience
           </h3>
-          <div className="space-y-8">
+          <div className="space-y-4 sm:space-y-6 md:space-y-8">
             {leadershipRoles.map((role, index) => (
               <div
                 key={index}
-                className={`glass-card p-8 rounded-3xl perspective-card transition-all duration-1000 ${
-                  isVisible ? 'slide-in-left' : 'opacity-0 -translate-x-10'
+                className={`glass-card p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl md:rounded-3xl transition-all duration-700 ${
+                  isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
                 }`}
-                style={{ transitionDelay: `${500 + index * 200}ms` }}
+                style={{ transitionDelay: `${300 + index * 150}ms` }}
               >
-                <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-8">
-                  <div className="flex-shrink-0 mb-6 lg:mb-0">
-                    <div className={`w-16 h-16 bg-gradient-to-br ${role.color} rounded-2xl flex items-center justify-center glow-accent`}>
-                      <role.icon className="h-8 w-8 text-white" />
+                <div className="flex flex-col sm:flex-row sm:items-start sm:space-x-4 md:space-x-6">
+                  <div className="flex-shrink-0 mb-4 sm:mb-0">
+                    <div className={`w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br ${role.color} rounded-xl sm:rounded-2xl flex items-center justify-center`}>
+                      <role.icon className="h-6 w-6 sm:h-7 sm:w-7 md:h-8 md:w-8 text-white" />
                     </div>
                   </div>
                   <div className="flex-grow">
-                    <div className="flex flex-col lg:flex-row lg:justify-between lg:items-start mb-4">
-                      <div>
-                        <h4 className="text-xl font-bold text-primary mb-2">{role.title}</h4>
-                        <p className="text-lg text-accent font-semibold mb-1">{role.organization}</p>
-                        <p className="text-sm text-muted-foreground mb-4">{role.period}</p>
-                      </div>
+                    <div className="mb-3 sm:mb-4">
+                      <h4 className="text-lg sm:text-xl font-bold text-primary mb-1 sm:mb-2">{role.title}</h4>
+                      <p className="text-sm sm:text-base text-accent font-semibold mb-1">{role.organization}</p>
+                      <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{role.period}</p>
                     </div>
-                    <p className="text-muted-foreground mb-6 leading-relaxed">{role.description}</p>
+                    <p className="text-muted-foreground mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base line-clamp-3">{role.description}</p>
                     
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 gap-4 sm:gap-6">
                       <div>
-                        <h5 className="text-sm font-semibold text-primary mb-3">Key Achievements</h5>
-                        <div className="space-y-2">
-                          {role.achievements.map((achievement, aIndex) => (
+                        <h5 className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">Key Achievements</h5>
+                        <div className="space-y-1 sm:space-y-2">
+                          {role.achievements.slice(0, 3).map((achievement, aIndex) => (
                             <div key={aIndex} className="flex items-start space-x-2">
-                              <div className="w-1.5 h-1.5 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                              <p className="text-sm text-muted-foreground">{achievement}</p>
+                              <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-accent rounded-full mt-1.5 sm:mt-2 flex-shrink-0"></div>
+                              <p className="text-xs sm:text-sm text-muted-foreground line-clamp-2">{achievement}</p>
                             </div>
                           ))}
                         </div>
                       </div>
                       <div>
-                        <h5 className="text-sm font-semibold text-primary mb-3">Impact</h5>
-                        <div className="bg-accent-soft p-4 rounded-xl border-l-4 border-accent">
-                          <p className="text-sm text-foreground font-medium">{role.impact}</p>
+                        <h5 className="text-xs sm:text-sm font-semibold text-primary mb-2 sm:mb-3">Impact</h5>
+                        <div className="bg-accent-soft p-3 sm:p-4 rounded-lg sm:rounded-xl border-l-3 sm:border-l-4 border-accent">
+                          <p className="text-xs sm:text-sm text-foreground font-medium">{role.impact}</p>
                         </div>
                       </div>
                     </div>
@@ -197,36 +195,36 @@ const Leadership = () => {
           <h3 className={`text-2xl font-bold text-center mb-12 text-primary transition-all duration-1000 delay-700 ${isVisible ? 'slide-in-right' : 'opacity-0 translate-x-10'}`}>
             Volunteering & Community Impact
           </h3>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
             {volunteeringExperience.map((experience, index) => (
               <div
                 key={index}
-                className={`glass-card p-6 rounded-3xl perspective-card transition-all duration-1000 ${
-                  isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'
+                className={`glass-card p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl md:rounded-3xl transition-all duration-700 ${
+                  isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
-                style={{ transitionDelay: `${900 + index * 150}ms` }}
+                style={{ transitionDelay: `${600 + index * 100}ms` }}
               >
-                <div className={`w-12 h-12 bg-gradient-to-br ${experience.color} rounded-xl flex items-center justify-center mb-4 glow-accent`}>
-                  <experience.icon className="h-6 w-6 text-white" />
+                <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${experience.color} rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4`}>
+                  <experience.icon className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
-                <h4 className="text-lg font-bold text-primary mb-2">{experience.title}</h4>
-                <p className="text-accent font-semibold mb-1">{experience.organization}</p>
-                <p className="text-sm text-muted-foreground mb-4">{experience.period}</p>
-                <p className="text-muted-foreground mb-4 text-sm leading-relaxed">{experience.description}</p>
+                <h4 className="text-base sm:text-lg font-bold text-primary mb-1 sm:mb-2">{experience.title}</h4>
+                <p className="text-accent font-semibold mb-1 text-sm sm:text-base">{experience.organization}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{experience.period}</p>
+                <p className="text-muted-foreground mb-3 sm:mb-4 text-xs sm:text-sm leading-relaxed line-clamp-3">{experience.description}</p>
                 
-                <div className="mb-4">
+                <div className="mb-3 sm:mb-4">
                   <h5 className="text-xs font-semibold text-primary mb-2">Contributions</h5>
                   <div className="space-y-1">
-                    {experience.contributions.map((contribution, cIndex) => (
-                      <div key={cIndex} className="flex items-start space-x-2">
-                        <div className="w-1 h-1 bg-accent rounded-full mt-1.5 flex-shrink-0"></div>
-                        <p className="text-xs text-muted-foreground">{contribution}</p>
+                    {experience.contributions.slice(0, 3).map((contribution, cIndex) => (
+                      <div key={cIndex} className="flex items-start space-x-1.5">
+                        <div className="w-1 h-1 bg-accent rounded-full mt-1 flex-shrink-0"></div>
+                        <p className="text-xs text-muted-foreground line-clamp-1">{contribution}</p>
                       </div>
                     ))}
                   </div>
                 </div>
                 
-                <div className="bg-accent-soft p-3 rounded-lg border-l-3 border-accent">
+                <div className="bg-accent-soft p-2.5 sm:p-3 rounded-lg border-l-2 sm:border-l-3 border-accent">
                   <p className="text-xs text-foreground font-medium">{experience.impact}</p>
                 </div>
               </div>
@@ -239,20 +237,20 @@ const Leadership = () => {
           <h3 className="text-2xl font-bold text-center mb-12 text-primary">
             Awards & Recognition
           </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
             {awards.map((award, index) => (
               <div
                 key={index}
-                className="glass-card p-6 rounded-2xl text-center perspective-card transition-all duration-1000"
-                style={{ transitionDelay: `${1400 + index * 150}ms` }}
+                className="glass-card p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl text-center transition-all duration-700"
+                style={{ transitionDelay: `${800 + index * 100}ms` }}
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-4 glow-accent">
-                  <Award className="h-6 w-6 text-white" />
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <Award className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                 </div>
-                <h4 className="text-lg font-bold text-primary mb-2">{award.title}</h4>
-                <p className="text-accent font-semibold mb-1">{award.organization}</p>
-                <p className="text-sm text-muted-foreground mb-3">{award.year}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed">{award.description}</p>
+                <h4 className="text-sm sm:text-base md:text-lg font-bold text-primary mb-1 sm:mb-2">{award.title}</h4>
+                <p className="text-accent font-semibold mb-1 text-xs sm:text-sm">{award.organization}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">{award.year}</p>
+                <p className="text-xs text-muted-foreground leading-relaxed line-clamp-2">{award.description}</p>
               </div>
             ))}
           </div>
