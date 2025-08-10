@@ -13,6 +13,7 @@ import {
   Network,
   Terminal
 } from 'lucide-react';
+import FloatingParticles from './FloatingParticles';
 
 const TechnicalSkills = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -95,6 +96,12 @@ const TechnicalSkills = () => {
 
   return (
     <section id="skills" className="py-20 relative overflow-hidden">
+      {/* Animated Background */}
+      <FloatingParticles 
+        particleCount={40} 
+        colors={['#3b82f6', '#8b5cf6', '#06b6d4', '#10b981', '#f59e0b']}
+      />
+      
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-72 h-72 bg-neon-cyan/30 rounded-full blur-3xl floating-card"></div>

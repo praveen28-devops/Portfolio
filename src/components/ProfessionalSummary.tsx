@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Code, Cloud, Zap, Shield } from 'lucide-react';
+import FloatingParticles from './FloatingParticles';
+import GeometricShapes from './GeometricShapes';
 
 const ProfessionalSummary = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -51,7 +53,14 @@ const ProfessionalSummary = () => {
 
   return (
     <section id="summary" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Animated Background Elements */}
+      <FloatingParticles 
+        particleCount={30} 
+        colors={['hsl(var(--primary))', 'hsl(var(--accent))', 'hsl(var(--primary)/0.7)', 'hsl(var(--accent)/0.7)']}
+      />
+      <GeometricShapes shapeCount={6} />
+      
+      {/* Traditional Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 right-20 w-64 h-64 bg-accent/30 rounded-full blur-3xl floating-card"></div>
         <div className="absolute bottom-20 left-20 w-80 h-80 bg-primary/20 rounded-full blur-3xl floating-card" style={{ animationDelay: '3s' }}></div>

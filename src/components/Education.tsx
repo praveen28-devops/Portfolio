@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { GraduationCap, Award, Calendar, MapPin, ExternalLink } from 'lucide-react';
+import GeometricShapes from './GeometricShapes';
 
 const Education = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -117,6 +118,9 @@ const Education = () => {
 
   return (
     <section id="education" className="py-20 relative overflow-hidden">
+      {/* Animated Background */}
+      <GeometricShapes shapeCount={10} />
+      
       {/* Background Elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 right-20 w-80 h-80 bg-accent/30 rounded-full blur-3xl floating-card"></div>
