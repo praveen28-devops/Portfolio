@@ -141,10 +141,10 @@ const Education = () => {
             {education.map((edu, index) => (
               <div
                 key={index}
-                className={`glass-card p-8 rounded-3xl perspective-card transition-all duration-1000 ${
-                  isVisible ? 'slide-in-left' : 'opacity-0 -translate-x-10'
+                className={`glass-card p-6 sm:p-8 rounded-3xl transition-all duration-1000 ${
+                  isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
                 }`}
-                style={{ transitionDelay: `${500 + index * 200}ms` }}
+                style={{ transitionDelay: `${400 + index * 150}ms` }}
               >
                 <div className="flex flex-col lg:flex-row lg:items-start lg:space-x-8">
                   <div className="flex-shrink-0 mb-4 lg:mb-0">
@@ -193,47 +193,33 @@ const Education = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {certifications.map((cert, index) => (
-              <div
+              <a
                 key={index}
-                className={`relative h-64 perspective-1000 transition-all duration-1000 ${
-                  isVisible ? 'slide-in-up' : 'opacity-0 translate-y-10'
+                href={`#cert-${cert.credentialId}`}
+                className={`relative group cursor-pointer transition-all duration-700 hover:scale-105 ${
+                  isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
-                style={{ transitionDelay: `${900 + index * 150}ms` }}
+                style={{ transitionDelay: `${600 + index * 100}ms` }}
               >
-                <div
-                  className={`relative w-full h-full transition-transform duration-700 transform-style-preserve-3d cursor-pointer ${
-                    flippedCards.includes(index) ? 'rotate-y-180' : ''
-                  }`}
-                  onClick={() => toggleCardFlip(index)}
-                >
-                  {/* Front of card */}
-                  <div className="absolute inset-0 glass-card rounded-2xl p-6 backface-hidden">
-                    <div className={`w-12 h-12 bg-gradient-to-br ${cert.color} rounded-xl flex items-center justify-center mb-4 glow-accent`}>
-                      <Award className="h-6 w-6 text-white" />
-                    </div>
-                    <h4 className="text-lg font-bold text-primary mb-2 line-clamp-2">{cert.title}</h4>
-                    <p className="text-accent font-semibold mb-2">{cert.issuer}</p>
-                    <p className="text-sm text-muted-foreground mb-4">{cert.date}</p>
-                    <div className={`inline-block px-3 py-1 bg-gradient-to-r ${cert.color} text-white text-xs font-medium rounded-full`}>
-                      {cert.level}
-                    </div>
-                    <div className="absolute bottom-4 right-4">
-                      <ExternalLink className="h-4 w-4 text-muted-foreground" />
-                    </div>
+                <div className="glass-card rounded-3xl p-4 sm:p-5 md:p-6 h-full transition-all duration-300 group-hover:shadow-lg group-hover:shadow-accent/20">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br ${cert.color} rounded-2xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                    <Award className="h-5 w-5 sm:h-6 sm:w-6 text-white" />
                   </div>
-
-                  {/* Back of card */}
-                  <div className="absolute inset-0 glass-card rounded-2xl p-6 backface-hidden rotate-y-180 flex flex-col justify-center">
-                    <div className="text-center">
-                      <Award className="h-12 w-12 text-accent mx-auto mb-4" />
-                      <h4 className="text-lg font-bold text-primary mb-2">{cert.title}</h4>
-                      <p className="text-sm text-muted-foreground mb-2">Credential ID:</p>
-                      <p className="text-xs font-mono bg-secondary-elevated px-2 py-1 rounded">{cert.credentialId}</p>
-                      <p className="text-xs text-muted-foreground mt-4">Click to flip back</p>
-                    </div>
+                  <h4 className="text-sm sm:text-base md:text-lg font-bold text-primary mb-2 line-clamp-2 group-hover:text-accent transition-colors duration-300">{cert.title}</h4>
+                  <p className="text-accent font-semibold mb-2 text-xs sm:text-sm">{cert.issuer}</p>
+                  <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">{cert.date}</p>
+                  <div className={`inline-block px-2 sm:px-3 py-1 bg-gradient-to-r ${cert.color} text-white text-xs font-medium rounded-full mb-3`}>
+                    {cert.level}
+                  </div>
+                  <div className="mt-auto">
+                    <p className="text-xs text-muted-foreground mb-2">Credential ID:</p>
+                    <p className="text-xs font-mono bg-secondary-elevated px-2 py-1 rounded text-center">{cert.credentialId}</p>
+                  </div>
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <ExternalLink className="h-4 w-4 text-accent" />
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

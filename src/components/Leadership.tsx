@@ -145,7 +145,7 @@ const Leadership = () => {
             {leadershipRoles.map((role, index) => (
               <div
                 key={index}
-                className={`glass-card p-4 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl md:rounded-3xl transition-all duration-700 ${
+                className={`glass-card p-4 sm:p-6 md:p-8 rounded-3xl transition-all duration-700 ${
                   isVisible ? 'animate-fade-in opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
                 }`}
                 style={{ transitionDelay: `${300 + index * 150}ms` }}
@@ -199,7 +199,7 @@ const Leadership = () => {
             {volunteeringExperience.map((experience, index) => (
               <div
                 key={index}
-                className={`glass-card p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl md:rounded-3xl transition-all duration-700 ${
+                className={`glass-card p-4 sm:p-5 md:p-6 rounded-3xl transition-all duration-700 ${
                   isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
                 style={{ transitionDelay: `${600 + index * 100}ms` }}
@@ -241,7 +241,7 @@ const Leadership = () => {
             {awards.map((award, index) => (
               <div
                 key={index}
-                className="glass-card p-4 sm:p-5 md:p-6 rounded-xl sm:rounded-2xl text-center transition-all duration-700"
+                className="glass-card p-4 sm:p-5 md:p-6 rounded-3xl text-center transition-all duration-700"
                 style={{ transitionDelay: `${800 + index * 100}ms` }}
               >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-yellow-500 to-orange-500 rounded-lg sm:rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">

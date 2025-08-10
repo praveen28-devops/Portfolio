@@ -167,7 +167,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`glass-card rounded-xl sm:rounded-2xl overflow-hidden transition-all duration-500 touch-manipulation hover:scale-[1.02] ${
+              className={`glass-card rounded-3xl sm:rounded-3xl overflow-hidden transition-all duration-500 touch-manipulation hover:scale-[1.02] ${
                 isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
               }`}
               style={{ 
@@ -188,7 +188,7 @@ const Projects = () => {
                 </div>
                 <div className="relative z-10">
                   <div className="flex items-start space-x-2 sm:space-x-3 mb-2 sm:mb-3">
-                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-lg flex items-center justify-center backdrop-blur-sm flex-shrink-0">
+                    <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-2xl flex items-center justify-center backdrop-blur-sm flex-shrink-0">
                       <project.icon className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                     </div>
                     <h3 className="text-sm sm:text-base md:text-lg font-bold text-white leading-tight">{project.title}</h3>
@@ -201,14 +201,6 @@ const Projects = () => {
                     >
                       <Github className="h-3 w-3 mr-1" />
                       Code
-                    </Button>
-                    <Button 
-                      variant="ghost" 
-                      size="sm" 
-                      className="text-white/80 hover:text-white hover:bg-white/20 px-2 py-1 h-auto text-xs touch-manipulation"
-                    >
-                      <ExternalLink className="h-3 w-3 mr-1" />
-                      Demo
                     </Button>
                   </div>
                 </div>
