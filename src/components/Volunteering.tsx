@@ -10,7 +10,7 @@ import {
   Star
 } from 'lucide-react';
 
-const Leadership = () => {
+const Volunteering = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -146,4 +146,4 @@ const Leadership = () => {
   );
 };
 
-export default Leadership;
+export default Volunteering;

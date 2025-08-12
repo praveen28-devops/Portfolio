@@ -72,7 +72,7 @@ const Education = () => {
       title: 'AWS Solutions Architect Professional',
       issuer: 'Amazon Web Services',
       date: '2023',
-      credentialId: 'AWS-SAP-2023-001',
+      credentialUrl: 'https://www.credly.com/badges/aws-solutions-architect-professional',
       level: 'Professional',
       color: 'from-orange-500 to-red-500'
     },
@@ -80,7 +80,7 @@ const Education = () => {
       title: 'Certified Kubernetes Administrator',
       issuer: 'Cloud Native Computing Foundation',
       date: '2023',
-      credentialId: 'CKA-2023-002',
+      credentialUrl: 'https://www.credly.com/badges/certified-kubernetes-administrator',
       level: 'Expert',
       color: 'from-blue-500 to-purple-500'
     },
@@ -88,7 +88,7 @@ const Education = () => {
       title: 'Azure DevOps Engineer Expert',
       issuer: 'Microsoft',
       date: '2022',
-      credentialId: 'AZ-400-2022-003',
+      credentialUrl: 'https://www.credly.com/badges/azure-devops-engineer-expert',
       level: 'Expert',
       color: 'from-blue-600 to-cyan-500'
     },
@@ -96,7 +96,7 @@ const Education = () => {
       title: 'Google Cloud Professional Cloud Architect',
       issuer: 'Google Cloud',
       date: '2022',
-      credentialId: 'GCP-PCA-2022-004',
+      credentialUrl: 'https://www.credential.net/google-cloud-professional-architect',
       level: 'Professional',
       color: 'from-green-500 to-blue-500'
     },
@@ -104,7 +104,7 @@ const Education = () => {
       title: 'HashiCorp Terraform Associate',
       issuer: 'HashiCorp',
       date: '2022',
-      credentialId: 'HCT-TA-2022-005',
+      credentialUrl: 'https://www.credly.com/badges/hashicorp-terraform-associate',
       level: 'Associate',
       color: 'from-purple-500 to-pink-500'
     },
@@ -112,7 +112,7 @@ const Education = () => {
       title: 'Docker Certified Associate',
       issuer: 'Docker Inc.',
       date: '2021',
-      credentialId: 'DCA-2021-006',
+      credentialUrl: 'https://www.credly.com/badges/docker-certified-associate',
       level: 'Associate',
       color: 'from-blue-400 to-blue-600'
     }
@@ -209,7 +209,9 @@ const Education = () => {
             {certifications.map((cert, index) => (
               <a
                 key={index}
-                href={`#cert-${cert.credentialId}`}
+                href={cert.credentialUrl}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`relative group cursor-pointer transition-all duration-700 hover:scale-105 ${
                   isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
@@ -222,12 +224,8 @@ const Education = () => {
                   <h4 className="text-sm sm:text-base md:text-lg font-bold text-primary mb-1 sm:mb-2 line-clamp-2 group-hover:text-accent transition-colors duration-300 leading-tight">{cert.title}</h4>
                   <p className="text-accent font-semibold mb-1 text-xs sm:text-sm">{cert.issuer}</p>
                   <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">{cert.date}</p>
-                  <div className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 bg-gradient-to-r ${cert.color} text-white text-xs font-medium rounded-full mb-2 sm:mb-3`}>
+                  <div className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 bg-gradient-to-r ${cert.color} text-white text-xs font-medium rounded-full`}>
                     {cert.level}
-                  </div>
-                  <div className="mt-auto">
-                    <p className="text-xs text-muted-foreground mb-1 sm:mb-2">Credential ID:</p>
-                    <p className="text-xs font-mono bg-secondary-elevated px-2 py-1 rounded text-center">{cert.credentialId}</p>
                   </div>
                   <div className="absolute top-2 sm:top-3 right-2 sm:right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 text-accent" />
