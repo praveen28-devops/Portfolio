@@ -44,10 +44,10 @@ To run this project locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/praveen-a-devops/<your-repo>.git
+git clone https://github.com/praveen-a-devops/https://github.com/praveen28-devops/Portfolio.git
 
 # Navigate into the project
-cd <your-repo>
+cd (https://github.com/praveen28-devops/Portfolio.git)
 
 # Install dependencies
 npm install
