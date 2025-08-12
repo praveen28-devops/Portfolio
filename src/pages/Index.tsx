@@ -4,7 +4,7 @@ import ProfessionalSummary from '@/components/ProfessionalSummary';
 import TechnicalSkills from '@/components/TechnicalSkills';
 import Education from '@/components/Education';
 import Projects from '@/components/Projects';
-import Leadership from '@/components/Leadership';
+import Volunteering from '@/components/Volunteering';
 
 const Index = () => {
   return (
@@ -15,7 +15,7 @@ const Index = () => {
       <TechnicalSkills />
       <Education />
       <Projects />
-      <Leadership />
+      <Volunteering />
     </div>
   );
 };

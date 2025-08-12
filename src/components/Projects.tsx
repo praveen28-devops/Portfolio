@@ -49,106 +49,55 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Multi-Cloud Infrastructure Automation',
-      description: 'Designed and implemented a comprehensive infrastructure automation solution supporting AWS, Azure, and GCP with unified Terraform modules and GitOps workflows.',
-      icon: Cloud,
-      technologies: ['Terraform', 'AWS', 'Azure', 'GCP', 'GitLab CI', 'Ansible'],
+      title: 'Mobile-First Animation Framework',
+      description: 'Developed a comprehensive CSS and JavaScript animation library optimized for mobile devices with smooth 60fps transitions and adaptive performance.',
+      icon: Zap,
+      technologies: ['CSS3', 'GSAP', 'Framer Motion', 'React Spring', 'Intersection Observer'],
       highlights: [
-        'Reduced infrastructure provisioning time by 75%',
-        'Implemented cross-cloud disaster recovery',
-        'Achieved 99.9% uptime across all environments'
+        'Achieved 60fps animations on low-end mobile devices',
+        'Reduced animation bundle size by 40%',
+        'Implemented adaptive performance based on device capability'
       ],
       metrics: {
-        performance: '75% faster deployments',
-        cost: '40% cost reduction',
-        reliability: '99.9% uptime'
+        performance: '60fps on mobile',
+        cost: '40% smaller bundle',
+        reliability: '99% smooth playback'
       },
       color: 'from-blue-500 to-cyan-500'
     },
     {
-      title: 'Kubernetes Platform Engineering',
-      description: 'Built a production-ready Kubernetes platform with automated scaling, monitoring, and security policies for microservices architecture.',
-      icon: Server,
-      technologies: ['Kubernetes', 'Helm', 'Prometheus', 'Grafana', 'Istio', 'ArgoCD'],
+      title: 'Responsive Micro-Interactions',
+      description: 'Created an interactive component library with touch-optimized micro-interactions and gesture-based animations for mobile web applications.',
+      icon: Monitor,
+      technologies: ['React', 'TypeScript', 'Lottie', 'Rive', 'React Native Reanimated'],
       highlights: [
-        'Orchestrated 200+ microservices',
-        'Implemented zero-downtime deployments',
-        'Automated security scanning and compliance'
+        'Built 50+ reusable animated components',
+        'Implemented touch-gesture recognition',
+        'Created adaptive animations for various screen sizes'
       ],
       metrics: {
-        performance: '200+ services managed',
-        cost: '60% resource optimization',
-        reliability: 'Zero-downtime deployments'
+        performance: '50+ components',
+        cost: 'Touch-optimized UX',
+        reliability: 'Cross-device compatibility'
       },
       color: 'from-purple-500 to-violet-500'
     },
     {
-      title: 'CI/CD Pipeline Optimization',
-      description: 'Revolutionized the development workflow by implementing advanced CI/CD pipelines with automated testing, security scanning, and progressive deployments.',
-      icon: Zap,
-      technologies: ['Jenkins', 'Docker', 'Kubernetes'],
+      title: 'Adaptive Loading Transitions',
+      description: 'Designed intelligent loading and page transition systems that adapt to network conditions and device performance for optimal mobile experience.',
+      icon: Server,
+      technologies: ['Progressive Enhancement', 'Service Workers', 'CSS Transitions', 'WebGL'],
       highlights: [
-        'Accelerated release cycles from weeks to hours',
-        'Integrated automated security and quality gates',
-        'Implemented canary and blue-green deployments'
+        'Reduced perceived loading time by 60%',
+        'Implemented network-aware animation quality',
+        'Created seamless page-to-page transitions'
       ],
       metrics: {
-        performance: '90% faster releases',
-        cost: 'Reduced manual effort by 80%',
-        reliability: '95% reduction in production issues'
+        performance: '60% faster perceived load',
+        cost: 'Network-adaptive quality',
+        reliability: 'Seamless transitions'
       },
       color: 'from-orange-500 to-red-500'
-    },
-    {
-      title: 'Observability & Monitoring Platform',
-      description: 'Developed a comprehensive observability solution with real-time monitoring, alerting, and analytics for distributed systems.',
-      icon: Monitor,
-      technologies: ['Prometheus', 'Grafana', 'ELK Stack', 'Jaeger', 'PagerDuty', 'Datadog'],
-      highlights: [
-        'Implemented distributed tracing across 50+ services',
-        'Built custom dashboards and alerting rules',
-        'Reduced MTTR from hours to minutes'
-      ],
-      metrics: {
-        performance: '5-minute MTTR',
-        cost: '50% reduction in debugging time',
-        reliability: '99.95% service availability'
-      },
-      color: 'from-green-500 to-emerald-500'
-    },
-    {
-      title: 'Database Migration & Optimization',
-      description: 'Led the migration of legacy databases to cloud-native solutions with automated backup, scaling, and performance optimization.',
-      icon: Database,
-      technologies: ['PostgreSQL', 'MongoDB', 'Redis', 'AWS RDS', 'Aurora', 'DMS'],
-      highlights: [
-        'Migrated 10TB+ data with zero downtime',
-        'Improved query performance by 3x',
-        'Implemented automated backup and recovery'
-      ],
-      metrics: {
-        performance: '3x query performance',
-        cost: '45% cost savings',
-        reliability: '99.99% data integrity'
-      },
-      color: 'from-teal-500 to-cyan-500'
-    },
-    {
-      title: 'Security & Compliance Automation',
-      description: 'Implemented DevSecOps practices with automated security scanning, compliance monitoring, and vulnerability management.',
-      icon: Shield,
-      technologies: ['Vault', 'SOPS', 'Falco', 'OPA', 'Trivy', 'AWS Security Hub'],
-      highlights: [
-        'Automated security compliance across all environments',
-        'Implemented secrets management and rotation',
-        'Achieved SOC2 and ISO27001 compliance'
-      ],
-      metrics: {
-        performance: '100% automated scanning',
-        cost: '70% reduction in security overhead',
-        reliability: 'Zero security incidents'
-      },
-      color: 'from-indigo-500 to-purple-500'
     }
   ];
 
