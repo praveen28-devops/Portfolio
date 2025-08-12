@@ -68,19 +68,18 @@ const Projects = () => {
       color: 'from-blue-500 to-cyan-500'
     },
     {
-      title: 'Responsive Micro-Interactions',
-      description: 'Created an interactive component library with touch-optimized micro-interactions and gesture-based animations for mobile web applications.',
+      title: 'AWS Fully Serverless Architecture with CI/CD',
+      description: 'Implemented a production-grade serverless API architecture using AWS Lambda, API Gateway, and Aurora Serverless, with infrastructure provisioned via Terraform and CI/CD powered by GitHub Actions.',
       icon: Monitor,
-      technologies: ['React', 'TypeScript', 'Lottie', 'Rive', 'React Native Reanimated'],
+      technologies: ['AWS', 'Lambda', 'API Gateway', 'Terraform', 'GitHub Actions'],
       highlights: [
-        'Built 50+ reusable animated components',
-        'Implemented touch-gesture recognition',
-        'Created adaptive animations for various screen sizes'
+        'Automated deployments via GitHub Actions CI/CD pipeline',
+        'Achieved secure, scalable API delivery with private VPC endpoints and Secrets Manager',
       ],
       metrics: {
-        performance: '50+ components',
+        performance: '100% serverless uptime',
         cost: 'Touch-optimized UX',
-        reliability: 'Cross-device compatibility'
+        reliability: 'Fully automated deployments'
       },
       color: 'from-purple-500 to-violet-500'
     },
