@@ -51,19 +51,19 @@ const Projects = () => {
 
   const projects = [
     {
-      title: 'Mobile-First Animation Framework',
-      description: 'Developed a comprehensive CSS and JavaScript animation library optimized for mobile devices with smooth 60fps transitions and adaptive performance.',
+      title: '3-Tier Scalable Web Application on AWS',
+      description: 'Architected and deployed a highly available 3-tier web application on AWS using EC2, RDS, and S3 with load balancing, auto scaling, and secure VPC networking.',
       icon: Zap,
-      technologies: ['CSS3', 'GSAP', 'Framer Motion', 'React Spring', 'Intersection Observer'],
+      technologies: ['AWS', 'EC2', 'RDS', 'S3', 'IAM', 'VPC'],
       highlights: [
         'Achieved 60fps animations on low-end mobile devices',
-        'Reduced animation bundle size by 40%',
+        'Reduced animation bundle size by 40%', 
         'Implemented adaptive performance based on device capability'
       ],
       metrics: {
-        performance: '60fps on mobile',
+        performance: '35% lower latency',
         cost: '40% smaller bundle',
-        reliability: '99% smooth playback'
+        reliability: '99.9% uptime'
       },
       color: 'from-blue-500 to-cyan-500'
     },

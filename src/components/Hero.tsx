@@ -89,11 +89,10 @@ const Hero = () => {
               </span>
             </h1>
             <h2 className="text-[clamp(1.25rem,5vw,1.75rem)] sm:text-[clamp(1.5rem,5vw,2.5rem)] md:text-[clamp(2rem,5vw,3rem)] lg:text-4xl font-semibold text-white mb-2 sm:mb-3 md:mb-4 text-glow leading-tight">
-              Aspiring DevOps Engineer
+              Aspiring Cloud and DevOps Engineer
             </h2>
             <p className="text-[clamp(0.875rem,4vw,1rem)] sm:text-[clamp(1rem,4vw,1.25rem)] md:text-xl lg:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed px-2 sm:px-4">
-              Fresh Computer Science graduate passionate about cloud technologies, automation, and building scalable systems. 
-              Ready to contribute to innovative projects and grow in the DevOps field.
+            Pursuing B.Tech in Information Technology with a passion for cloud and DevOps, automation, and scalable system design. Currently at an intermediate level and eager to contribute to innovative projects while growing skills in the DevOps field
             </p>
           </div>
 

@@ -141,8 +141,8 @@ const ProfessionalSummary = () => {
           <div className="glass-card p-4 sm:p-6 md:p-8 rounded-2xl sm:rounded-3xl">
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6 md:gap-8 text-center">
               <div className="space-y-1 sm:space-y-2">
-                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent">20+</div>
-                <div className="text-xs sm:text-sm md:text-base text-muted-foreground">Tools on Self Learning</div>
+                <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent">1+</div>
+                <div className="text-xs sm:text-sm md:text-base text-muted-foreground">Years of Self Learning</div>
               </div>
               <div className="space-y-1 sm:space-y-2">
                 <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-accent">5+</div>

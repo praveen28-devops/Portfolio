@@ -48,9 +48,8 @@ const Education = () => {
       period: '2023 - 2027',
       grade: 'CGPA: 7.8/10',
       highlights: [
-        'Specialized in Cloud Computing and Distributed Systems',
-        'Final Year Project: Automated Infrastructure Deployment',
-        'Member of Computer Science Society'
+        'Specialized in Cloud Computing and DevOps',
+        'Member of Zealous Information Technology Association'
       ]
     },
     {
@@ -61,7 +60,6 @@ const Education = () => {
       period: '2022 - 2023',
       grade: 'Percentage: 81%',
       highlights: [
-        'State Board Topper in Computer Science',
         'Active participant in Science Exhibitions',
         'Led school technology club'
       ]
@@ -72,7 +70,7 @@ const Education = () => {
     {
       title: 'AWS Solutions Architect Professional',
       issuer: 'Amazon Web Services',
-      date: '2023',
+      date: "On Progress",
       credentialUrl: 'https://www.credly.com/badges/aws-solutions-architect-professional',
       level: 'Professional',
       color: 'from-orange-500 to-red-500'
