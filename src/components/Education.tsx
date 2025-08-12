@@ -76,17 +76,17 @@ const Education = () => {
       color: 'from-orange-500 to-red-500'
     },
     {
-      title: 'Certified Kubernetes Administrator',
-      issuer: 'Cloud Native Computing Foundation',
-      date: '2023',
-      credentialUrl: 'https://www.credly.com/badges/certified-kubernetes-administrator',
-      level: 'Expert',
+      title: 'Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate',
+      issuer: 'Oracle',
+      date: '2025',
+      credentialUrl: 'https://catalog-education.oracle.com/apex/f?p=1010:2:106302833521560::::P2_AUTHCODE,P2_AUTH_KEY,P2_ARG_INVALID_CNT:MX238423qH73c,NtFPU238351Ytjh244ElkC,0',
+      level: 'Associate',
       color: 'from-blue-500 to-purple-500'
     },
     {
       title: 'Azure DevOps Engineer Expert',
       issuer: 'Microsoft',
-      date: '2022',
+      date: 'On Progress',
       credentialUrl: 'https://www.credly.com/badges/azure-devops-engineer-expert',
       level: 'Expert',
       color: 'from-blue-600 to-cyan-500'
@@ -94,7 +94,7 @@ const Education = () => {
     {
       title: 'Google Cloud Professional Cloud Architect',
       issuer: 'Google Cloud',
-      date: '2022',
+      date: 'On Progress',
       credentialUrl: 'https://www.credential.net/google-cloud-professional-architect',
       level: 'Professional',
       color: 'from-green-500 to-blue-500'
@@ -102,7 +102,7 @@ const Education = () => {
     {
       title: 'HashiCorp Terraform Associate',
       issuer: 'HashiCorp',
-      date: '2022',
+      date: 'On Progress',
       credentialUrl: 'https://www.credly.com/badges/hashicorp-terraform-associate',
       level: 'Associate',
       color: 'from-purple-500 to-pink-500'
@@ -110,7 +110,7 @@ const Education = () => {
     {
       title: 'Docker Certified Associate',
       issuer: 'Docker Inc.',
-      date: '2021',
+      date: 'On Progress',
       credentialUrl: 'https://www.credly.com/badges/docker-certified-associate',
       level: 'Associate',
       color: 'from-blue-400 to-blue-600'
