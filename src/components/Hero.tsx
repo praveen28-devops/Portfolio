@@ -128,14 +128,16 @@ const Hero = () => {
                 <Download className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 mr-1.5 sm:mr-2 md:mr-3 group-hover:animate-bounce" />
                 Download Resume
               </a>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent text-white font-bold px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3 lg:px-10 lg:py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-sm sm:text-base md:text-lg touch-manipulation"
+              <button 
+                onClick={() => {
+                  console.log('View Projects clicked!');
+                  window.open('https://github.com/praveen28-devops', '_blank');
+                }}
+                className="w-full sm:w-auto bg-gradient-to-r from-primary to-primary-glow hover:from-primary-glow hover:to-accent text-white font-bold px-4 py-2.5 sm:px-6 sm:py-3 md:px-8 md:py-3 lg:px-10 lg:py-4 rounded-full shadow-2xl hover:super-elevated transition-all duration-500 group perspective-card text-sm sm:text-base md:text-lg touch-manipulation inline-flex items-center justify-center cursor-pointer relative z-50"
               >
                 View Projects
                 <Github className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 lg:h-6 lg:w-6 ml-1.5 sm:ml-2 md:ml-3 group-hover:animate-bounce" />
-              </Button>
+              </button>
             </div>
           </div>
         </div>

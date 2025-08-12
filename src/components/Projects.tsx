@@ -71,7 +71,7 @@ const Projects = () => {
       title: 'AWS Fully Serverless Architecture with CI/CD',
       description: 'Implemented a production-grade serverless API architecture using AWS Lambda, API Gateway, and Aurora Serverless, with infrastructure provisioned via Terraform and CI/CD powered by GitHub Actions.',
       icon: Monitor,
-      technologies: ['AWS', 'Lambda', 'API Gateway', 'Terraform', 'GitHub Actions'],
+      technologies: ['Lambda', 'API Gateway', 'Terraform', 'GitHub Actions'],
       highlights: [
         'Automated deployments via GitHub Actions CI/CD pipeline',
         'Achieved secure, scalable API delivery with private VPC endpoints and Secrets Manager',
@@ -84,19 +84,18 @@ const Projects = () => {
       color: 'from-purple-500 to-violet-500'
     },
     {
-      title: 'Adaptive Loading Transitions',
-      description: 'Designed intelligent loading and page transition systems that adapt to network conditions and device performance for optimal mobile experience.',
+      title: 'AWS Infrastructure Automation with Terraform & GitLab CI/CD',
+      description: 'Developed a DevOps pipeline to provision and manage AWS infrastructure using Terraform, fully automated with GitLab CI/CD for seamless deployments.',
       icon: Server,
-      technologies: ['Progressive Enhancement', 'Service Workers', 'CSS Transitions', 'WebGL'],
+      technologies: ['Terraform', 'GitLab CI/CD', 'EC2', 'S3', 'VPC'],
       highlights: [
-        'Reduced perceived loading time by 60%',
-        'Implemented network-aware animation quality',
-        'Created seamless page-to-page transitions'
+        'Automated multi-environment AWS provisioning with Terraform',
+        'Enabled zero-touch deployments through GitLab CI/CD pipelines',
       ],
       metrics: {
-        performance: '60% faster perceived load',
+        performance: 'Faster infrastructure provisioning',
         cost: 'Network-adaptive quality',
-        reliability: 'Seamless transitions'
+        reliability: 'Consistent, error-free deployments'
       },
       color: 'from-orange-500 to-red-500'
     }

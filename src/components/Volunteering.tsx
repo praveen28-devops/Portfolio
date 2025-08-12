@@ -50,33 +50,32 @@ const Volunteering = () => {
 
   const volunteeringExperience = [
     {
-      title: 'Open Source Contributor',
-      organization: 'Kubernetes Community',
-      period: '2020 - Present',
-      description: 'Contributing to Kubernetes documentation and tools, helping improve the developer experience.',
+      title: 'Community Volunteer',
+      organization: 'Atchayam Trust',
+      period: '2024 - Present',
+      description: 'Supporting community events and elder care initiatives.',
       icon: BookOpen,
       contributions: [
-        'Contributed to Kubernetes official documentation',
-        'Developed Helm charts for common use cases',
-        'Mentored newcomers in community Slack channels',
-        'Participated in SIG-Apps working group'
+        'Volunteered at old age homes during functions.',
+        'Distributed food, clothing, and essential supplies.',
+        'Fostered intergenerational connections through activities and conversations',
+        'Assisted in event planning and logistics for community welfare programs.'
       ],
-      impact: 'Enhanced documentation used by 100K+ developers worldwide',
+      impact: 'Improved quality of life for elders and promoted community bonding.',
       color: 'from-purple-500 to-pink-500'
     },
     {
-      title: 'Technical Mentor',
-      organization: 'CodeForGood Initiative',
-      period: '2021 - Present',
-      description: 'Providing technical guidance to underprivileged students interested in cloud and DevOps technologies.',
+      title: 'Community Volunteer',
+      organization: 'Ullash Trust',
+      period: '2023 - Present',
+      description: 'Educating and mentoring tribal students in Sittling, Dharmapuri.',
       icon: Heart,
       contributions: [
-        'Mentored 50+ students in cloud computing fundamentals',
-        'Conducted free weekend workshops on AWS and Docker',
-        'Helped 20+ students secure internships in tech companies',
-        'Created free learning resources and tutorials'
+        'Taught 10th–12th grade tribal students in Sittling, Dharmapuri.',
+        'Encouraged learning despite resource and infrastructure challenges.',
+        'Organized interactive workshops to improve problem-solving and critical thinking skills.'
       ],
-      impact: 'Enabled career transitions for 20+ students into tech industry',
+      impact: 'Empowered rural students with knowledge and confidence to pursue higher education.',
       color: 'from-red-500 to-orange-500'
     },
   ];
