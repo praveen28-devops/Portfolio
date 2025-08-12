@@ -15,7 +15,7 @@ const MobileOptimizations: React.FC<MobileOptimizationsProps> = ({ children }) =
       document.body.style.overscrollBehavior = 'none';
       
       // Optimize scrolling performance
-      document.body.style.webkitOverflowScrolling = 'touch';
+      (document.body.style as any).webkitOverflowScrolling = 'touch';
       
       // Prevent text selection on interactive elements
       const interactiveElements = document.querySelectorAll('button, a, .touch-manipulation');
@@ -25,7 +25,7 @@ const MobileOptimizations: React.FC<MobileOptimizationsProps> = ({ children }) =
 
       return () => {
         document.body.style.overscrollBehavior = '';
-        document.body.style.webkitOverflowScrolling = '';
+        (document.body.style as any).webkitOverflowScrolling = '';
         
         interactiveElements.forEach(element => {
           element.removeEventListener('selectstart', (e) => e.preventDefault());
