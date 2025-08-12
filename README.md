@@ -1,4 +1,4 @@
-# 🌐 Praveen A – Aspiring DevOps Engineer
+# 🌐 Praveen A – Aspiring Cloud and DevOps Engineer
 
 Welcome to my personal portfolio project 🚀  
 This repository contains the source code for my portfolio website, built with **React, TypeScript, Tailwind CSS, shadcn-ui, and Vite**.  
@@ -47,7 +47,7 @@ To run this project locally:
 git clone https://github.com/praveen-a-devops/https://github.com/praveen28-devops/Portfolio.git
 
 # Navigate into the project
-cd (https://github.com/praveen28-devops/Portfolio.git)
+cd https://github.com/praveen28-devops/Portfolio.git
 
 # Install dependencies
 npm install
