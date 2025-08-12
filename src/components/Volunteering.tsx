@@ -9,6 +9,8 @@ import {
   Globe,
   Star
 } from 'lucide-react';
+import FloatingParticles from './FloatingParticles';
+import GeometricShapes from './GeometricShapes';
 
 const Volunteering = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -82,10 +84,18 @@ const Volunteering = () => {
 
   return (
     <section id="volunteering" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
-      {/* Background Elements - Simplified for mobile */}
+      {/* Animated Background Effects */}
+      {!isMobile && <GeometricShapes shapeCount={8} />}
+      <FloatingParticles 
+        particleCount={isMobile ? 12 : 20} 
+        className="absolute inset-0 opacity-25" 
+      />
+      
+      {/* Background Elements - Enhanced for animations */}
       <div className="absolute inset-0 opacity-5 sm:opacity-10">
-        <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-neon-purple/30 rounded-full blur-2xl sm:blur-3xl floating-card"></div>
-        <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-neon-cyan/20 rounded-full blur-2xl sm:blur-3xl floating-card" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-neon-purple/30 rounded-full blur-2xl sm:blur-3xl floating-card animate-pulse"></div>
+        <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-neon-cyan/20 rounded-full blur-2xl sm:blur-3xl floating-card animate-pulse" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute top-1/3 right-1/3 w-32 h-32 sm:w-64 sm:h-64 bg-accent/15 rounded-full blur-3xl floating-card" style={{ animationDelay: '2s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -109,13 +119,13 @@ const Volunteering = () => {
             {volunteeringExperience.map((experience, index) => (
               <div
                 key={index}
-                className={`glass-card p-4 sm:p-5 md:p-6 rounded-2xl sm:rounded-3xl transition-all duration-700 ${
+                className={`glass-card p-4 sm:p-5 md:p-6 rounded-2xl sm:rounded-3xl transition-all duration-700 group hover:scale-[1.02] hover:shadow-xl ${
                   isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
-                style={{ transitionDelay: `${300 + index * 150}ms` }}
+                style={{ transitionDelay: `${400 + index * 200}ms` }}
               >
-                <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br ${experience.color} rounded-lg sm:rounded-xl flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4`}>
-                  <experience.icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
+                <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br ${experience.color} rounded-lg sm:rounded-xl flex items-center justify-center mb-2.5 sm:mb-3 md:mb-4 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                  <experience.icon className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white group-hover:animate-pulse" />
                 </div>
                 <h4 className="text-sm sm:text-base md:text-lg font-bold text-primary mb-1 sm:mb-2 leading-tight">{experience.title}</h4>
                 <p className="text-accent font-semibold mb-1 text-xs sm:text-sm">{experience.organization}</p>
@@ -134,8 +144,8 @@ const Volunteering = () => {
                   </div>
                 </div>
                 
-                <div className="bg-accent-soft p-2 sm:p-2.5 md:p-3 rounded-lg border-l-2 sm:border-l-3 border-accent">
-                  <p className="text-xs text-foreground font-medium">{experience.impact}</p>
+                <div className="bg-accent-soft p-2 sm:p-2.5 md:p-3 rounded-lg border-l-2 sm:border-l-3 border-accent group-hover:bg-accent/20 group-hover:border-accent/80 transition-all duration-300">
+                  <p className="text-xs text-foreground font-medium group-hover:text-accent transition-colors duration-300">{experience.impact}</p>
                 </div>
               </div>
             ))}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { GraduationCap, Award, Calendar, MapPin, ExternalLink } from 'lucide-react';
 import GeometricShapes from './GeometricShapes';
+import FloatingParticles from './FloatingParticles';
 
 const Education = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -128,13 +129,18 @@ const Education = () => {
 
   return (
     <section id="education" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
-      {/* Animated Background - Reduced on mobile */}
+      {/* Animated Background Effects */}
       {!isMobile && <GeometricShapes shapeCount={10} />}
+      <FloatingParticles 
+        particleCount={isMobile ? 10 : 18} 
+        className="absolute inset-0 opacity-20" 
+      />
       
-      {/* Background Elements - Simplified for mobile */}
+      {/* Background Elements - Enhanced for animations */}
       <div className="absolute inset-0 opacity-5 sm:opacity-10">
-        <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-accent/30 rounded-full blur-2xl sm:blur-3xl floating-card"></div>
-        <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-32 h-32 sm:w-64 sm:h-64 bg-primary/20 rounded-full blur-2xl sm:blur-3xl floating-card" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-10 sm:top-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-accent/30 rounded-full blur-2xl sm:blur-3xl floating-card animate-pulse"></div>
+        <div className="absolute bottom-10 sm:bottom-20 left-10 sm:left-20 w-32 h-32 sm:w-64 sm:h-64 bg-primary/20 rounded-full blur-2xl sm:blur-3xl floating-card animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 right-1/4 w-28 h-28 sm:w-56 sm:h-56 bg-accent/15 rounded-full blur-3xl floating-card" style={{ animationDelay: '1s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -212,23 +218,23 @@ const Education = () => {
                 href={cert.credentialUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`relative group cursor-pointer transition-all duration-700 hover:scale-105 ${
+                className={`relative group cursor-pointer transition-all duration-700 hover:scale-105 hover:shadow-xl ${
                   isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
                 }`}
-                style={{ transitionDelay: `${600 + index * 100}ms` }}
+                style={{ transitionDelay: `${700 + index * 150}ms` }}
               >
-                <div className="glass-card rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-5 lg:p-6 h-full transition-all duration-300 group-hover:shadow-lg group-hover:shadow-accent/20">
-                  <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br ${cert.color} rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                    <Award className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white" />
+                <div className="glass-card rounded-2xl sm:rounded-3xl p-3 sm:p-4 md:p-5 lg:p-6 h-full transition-all duration-500 group-hover:shadow-lg group-hover:shadow-accent/20 group-hover:bg-gradient-to-br group-hover:from-background group-hover:to-accent/5">
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-br ${cert.color} rounded-lg sm:rounded-xl md:rounded-2xl flex items-center justify-center mb-2 sm:mb-3 md:mb-4 group-hover:scale-110 group-hover:shadow-lg transition-all duration-300`}>
+                    <Award className="h-4 w-4 sm:h-5 sm:w-5 md:h-6 md:w-6 text-white group-hover:animate-pulse" />
                   </div>
                   <h4 className="text-sm sm:text-base md:text-lg font-bold text-primary mb-1 sm:mb-2 line-clamp-2 group-hover:text-accent transition-colors duration-300 leading-tight">{cert.title}</h4>
-                  <p className="text-accent font-semibold mb-1 text-xs sm:text-sm">{cert.issuer}</p>
+                  <p className="text-accent font-semibold mb-1 text-xs sm:text-sm group-hover:scale-105 transition-transform duration-300">{cert.issuer}</p>
                   <p className="text-xs sm:text-sm text-muted-foreground mb-2 sm:mb-3">{cert.date}</p>
-                  <div className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 bg-gradient-to-r ${cert.color} text-white text-xs font-medium rounded-full`}>
+                  <div className={`inline-block px-2 sm:px-3 py-0.5 sm:py-1 bg-gradient-to-r ${cert.color} text-white text-xs font-medium rounded-full group-hover:scale-105 transition-transform duration-300`}>
                     {cert.level}
                   </div>
-                  <div className="absolute top-2 sm:top-3 right-2 sm:right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 text-accent" />
+                  <div className="absolute top-2 sm:top-3 right-2 sm:right-3 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:scale-110">
+                    <ExternalLink className="h-3 w-3 sm:h-4 sm:w-4 text-accent animate-pulse" />
                   </div>
                 </div>
               </a>

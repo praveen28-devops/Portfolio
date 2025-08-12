@@ -10,6 +10,8 @@ import {
   Zap
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import FloatingParticles from './FloatingParticles';
+import GeometricShapes from './GeometricShapes';
 
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -116,10 +118,18 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-12 sm:py-16 md:py-20 relative overflow-hidden">
-      {/* Background Elements - Simplified for mobile */}
+      {/* Animated Background Effects */}
+      {!isMobile && <GeometricShapes shapeCount={12} />}
+      <FloatingParticles 
+        particleCount={isMobile ? 15 : 25} 
+        className="absolute inset-0 opacity-30" 
+      />
+      
+      {/* Background Elements - Enhanced for animations */}
       <div className="absolute inset-0 opacity-5 sm:opacity-10">
-        <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-neon-blue/30 rounded-full blur-2xl sm:blur-3xl floating-card"></div>
-        <div className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-neon-purple/20 rounded-full blur-2xl sm:blur-3xl floating-card" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-10 sm:top-20 left-10 sm:left-20 w-48 h-48 sm:w-96 sm:h-96 bg-neon-blue/30 rounded-full blur-2xl sm:blur-3xl floating-card animate-pulse"></div>
+        <div className="absolute bottom-10 sm:bottom-20 right-10 sm:right-20 w-40 h-40 sm:w-80 sm:h-80 bg-neon-purple/20 rounded-full blur-2xl sm:blur-3xl floating-card animate-pulse" style={{ animationDelay: '3s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 sm:w-64 sm:h-64 bg-accent/10 rounded-full blur-3xl floating-card" style={{ animationDelay: '1.5s' }}></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -139,12 +149,12 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`glass-card rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 touch-manipulation cursor-pointer ${
+              className={`glass-card rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-700 touch-manipulation cursor-pointer group ${
                 isVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              } ${hoveredProject === index ? 'scale-[1.02] translate-y-[-4px]' : 'hover:scale-[1.02]'}`}
+              } ${hoveredProject === index ? 'scale-[1.05] translate-y-[-8px] shadow-2xl' : 'hover:scale-[1.03] hover:shadow-lg'}`}
               style={{ 
-                transitionDelay: `${100 + index * 50}ms`,
-                transition: 'transform 0.3s ease-out, opacity 0.5s ease-out'
+                transitionDelay: `${200 + index * 150}ms`,
+                transition: 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)'
               }}
               onMouseEnter={() => handleProjectInteraction(index, true)}
               onMouseLeave={() => handleProjectInteraction(index, false)}
@@ -159,23 +169,24 @@ const Projects = () => {
               }}
             >
               {/* Project Header */}
-              <div className={`p-3 sm:p-4 md:p-5 bg-gradient-to-r ${project.color} relative overflow-hidden`}>
-                <div className="absolute inset-0 opacity-20">
-                  <div className="absolute -top-1 -right-1 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white/20 rounded-full blur-lg sm:blur-xl"></div>
-                  <div className="absolute -bottom-1 -left-1 w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 bg-white/10 rounded-full blur-lg sm:blur-xl"></div>
+              <div className={`p-3 sm:p-4 md:p-5 bg-gradient-to-r ${project.color} relative overflow-hidden group-hover:bg-gradient-to-br transition-all duration-500`}>
+                <div className="absolute inset-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500">
+                  <div className="absolute -top-1 -right-1 w-8 h-8 sm:w-12 sm:h-12 md:w-16 md:h-16 bg-white/20 rounded-full blur-lg sm:blur-xl animate-pulse"></div>
+                  <div className="absolute -bottom-1 -left-1 w-10 h-10 sm:w-14 sm:h-14 md:w-20 md:h-20 bg-white/10 rounded-full blur-lg sm:blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-6 h-6 sm:w-10 sm:h-10 bg-white/15 rounded-full blur-md group-hover:scale-150 transition-transform duration-700"></div>
                 </div>
                 <div className="relative z-10">
                   <div className="flex items-start space-x-2 sm:space-x-3 mb-2 sm:mb-3">
-                    <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/20 rounded-lg sm:rounded-2xl flex items-center justify-center backdrop-blur-sm flex-shrink-0">
-                      <project.icon className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white" />
+                    <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 bg-white/20 rounded-lg sm:rounded-2xl flex items-center justify-center backdrop-blur-sm flex-shrink-0 group-hover:bg-white/30 group-hover:scale-110 transition-all duration-300">
+                      <project.icon className="h-3 w-3 sm:h-4 sm:w-4 md:h-5 md:w-5 text-white group-hover:animate-pulse" />
                     </div>
-                    <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white leading-tight">{project.title}</h3>
+                    <h3 className="text-xs sm:text-sm md:text-base lg:text-lg font-bold text-white leading-tight group-hover:scale-105 transition-transform duration-300">{project.title}</h3>
                   </div>
                   <div className="flex items-center space-x-2 sm:space-x-3 text-white/80">
                     <Button 
                       variant="ghost" 
                       size="sm" 
-                      className="text-white/80 hover:text-white hover:bg-white/20 px-1.5 sm:px-2 py-0.5 sm:py-1 h-auto text-xs touch-manipulation"
+                      className="text-white/80 hover:text-white hover:bg-white/20 px-1.5 sm:px-2 py-0.5 sm:py-1 h-auto text-xs touch-manipulation transition-all duration-300 hover:scale-105"
                       onClick={(e) => e.stopPropagation()}
                     >
                       <Github className="h-2.5 w-2.5 sm:h-3 sm:w-3 mr-0.5 sm:mr-1" />
