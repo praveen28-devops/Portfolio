@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "homepage": "https://praveen28-devops.github.io/Portfolio.github.io"
     "dev": "vite",
     "build": "vite build",
     "build:dev": "vite build --mode development",
