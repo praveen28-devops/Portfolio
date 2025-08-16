@@ -19,7 +19,7 @@ jobs:
           node-version: 18   # Vite + shadcn needs Node 18+
 
       - name: Install dependencies
-        run: npm ci   # faster & safer than npm install
+        run: npm install --legacy-peer-deps   # faster & safer than npm install
 
       - name: Build project
         run: npm run build
